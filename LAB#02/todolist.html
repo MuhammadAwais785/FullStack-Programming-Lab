@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do List</title>
+    <link rel="stylesheet" href="todolist.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Simple To-Do List</h1>
+        <div id="tasks-container">
+            <div class="task" data-task-id="1">
+                <input type="text" class="task-input" value="Complete project documentation" readonly>
+                <button class="complete-btn">Mark Complete</button>
+                <button class="remove-btn">Remove</button>
+            </div>
+            <div class="task" data-task-id="2">
+                <input type="text" class="task-input" value="Review code changes" readonly>
+                <button class="complete-btn">Mark Complete</button>
+                <button class="remove-btn">Remove</button>
+            </div>
+            <div class="task" data-task-id="3">
+                <input type="text" class="task-input" value="Update unit tests" readonly>
+                <button class="complete-btn">Mark Complete</button>
+                <button class="remove-btn">Remove</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="todolist.js"></script>
+</body>
+
+</html>

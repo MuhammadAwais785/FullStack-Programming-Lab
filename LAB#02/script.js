@@ -52,11 +52,11 @@ function showResult() {
 
   // Conditional statements based on score
   if (score === 0) {
-    message = "Poor performance 😔 You need more practice.";
+    message = "Poor performance You need more practice.";
   } else if (score === 1 || score === 2) {
-    message = "Good job 👍 Keep improving!";
+    message = "Good job Keep improving!";
   } else if (score === 3) {
-    message = "Excellent 🎉 Perfect score!";
+    message = "Excellent Perfect score!";
   }
 
   // Display result dynamically

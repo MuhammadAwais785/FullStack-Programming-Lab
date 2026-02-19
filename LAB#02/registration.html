@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="registration.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>Registration Form</h1>
+            <p class="form-subtitle">Please fill in all the fields below</p>
+
+            <form id="registrationForm" class="registration-form" novalidate>
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <!-- Age Field -->
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" placeholder="Enter your age" min="18" max="60" required>
+                    <span class="error-message" id="ageError"></span>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter your password (min 6 characters)" required>
+                    <span class="error-message" id="passwordError"></span>
+                    <div class="password-info">
+                        <small>Password must be at least 6 characters long</small>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-submit">Register</button>
+                    <button type="reset" class="btn btn-reset">Clear Form</button>
+                </div>
+
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage"></div>
+            </form>
+
+            <div class="form-requirements">
+                <h3>Requirements:</h3>
+                <ul>
+                    <li><span>✓</span> Name must not be empty</li>
+                    <li><span>✓</span> Email must contain @ symbol</li>
+                    <li><span>✓</span> Age must be between 18 and 60</li>
+                    <li><span>✓</span> Password must be at least 6 characters</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="registration.js"></script>
+</body>
+
+</html>

@@ -1,12 +1,12 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #775e5e;
 }
 
 .container {
   width: 50%;
   margin: 40px auto;
-  background: white;
+  background: rgb(148, 135, 135);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -22,8 +22,10 @@ h1 {
 
 button {
   padding: 10px 15px;
-  margin: 10px 5px 10px 0;
+  margin: 10px 17px 10px 0;
   cursor: pointer;
+  color: rgb(49, 49, 100);
+  background-color: rgb(179, 178, 194);
 }
 
 #result {
