@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2 – Online Shopping Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #e2e8f0;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #f97316, #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        /* ── Section Cards ─────────────────────────── */
+        .section {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(12px);
+        }
+
+        .section h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #a78bfa;
+            font-weight: 600;
+        }
+
+        .section h2 .sub {
+            color: #94a3b8;
+            font-weight: 400;
+            font-size: 0.85rem;
+        }
+
+        /* ── Stats Row ─────────────────────────────── */
+        .stats-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-box {
+            flex: 1;
+            min-width: 130px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            text-align: center;
+        }
+
+        .stat-box .num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f97316;
+        }
+
+        .stat-box .lbl {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.2rem;
+        }
+
+        /* ── Product Cards Grid ────────────────────── */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-card .p-name {
+            padding: 0.7rem 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            text-align: center;
+        }
+
+        /* ── Card border colors by type ────────────── */
+        .product-card.orange {
+            border-color: rgba(249, 115, 22, 0.3);
+        }
+
+        .product-card.purple {
+            border-color: rgba(167, 139, 250, 0.3);
+        }
+
+        .product-card.green {
+            border-color: rgba(52, 211, 153, 0.3);
+        }
+
+        /* ── Highlight Box ─────────────────────────── */
+        .highlight-box {
+            background: rgba(249, 115, 22, 0.08);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-radius: 14px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            overflow: hidden;
+        }
+
+        .highlight-box img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .highlight-box .text {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+        }
+
+        .highlight-box .text strong {
+            color: #f97316;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #475569;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .stats-row {
+                flex-direction: column;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🛒 Online Shopping Cart</h1>
+        <p>Task 2 — Rest Operator, Spread Operator & Array Destructuring</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Stats -->
+        <div class="stats-row" id="stats-row"></div>
+
+        <!-- Cart Items -->
+        <div class="section">
+            <h2>🛍️ Cart Items</h2>
+            <div class="products-grid" id="cart-items"></div>
+        </div>
+
+        <!-- First Item (Destructuring) -->
+        <div class="section" id="first-item-section"></div>
+
+        <!-- Remaining Items (Destructuring) -->
+        <div class="section">
+            <h2>📦 Remaining Items <span class="sub">(Array Destructuring)</span></h2>
+            <div class="products-grid" id="remaining-items"></div>
+        </div>
+
+        <!-- Cloned Cart (Spread) -->
+        <div class="section">
+            <h2>📋 Updated Cart — Cloned <span class="sub">(Spread Operator)</span></h2>
+            <div class="products-grid" id="cloned-cart"></div>
+        </div>
+
+    </div>
+
+    <footer>&copy; 2026 &mdash; LAB #03 | Task 2</footer>
+
+    <!-- ✅ External JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

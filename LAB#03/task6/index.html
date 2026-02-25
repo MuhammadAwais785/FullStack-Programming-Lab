@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6 - Mini University Portal</title>
+    <style>
+        /* ===== Global Reset & Base ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            color: #e0e0e0;
+            padding: 30px 16px;
+        }
+
+        /* ===== Page Header ===== */
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(90deg, #f472b6, #818cf8, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        /* ===== Grid Layout ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== Card ===== */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 26px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 16px;
+            color: #c4b5fd;
+        }
+
+        /* ===== Full-width cards ===== */
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* ===== Form Inputs ===== */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .form-row input {
+            flex: 1;
+            min-width: 100px;
+        }
+
+        input {
+            padding: 10px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.07);
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input::placeholder {
+            color: #6b7280;
+        }
+
+        input:focus {
+            border-color: #818cf8;
+        }
+
+        /* ===== Buttons ===== */
+        .btn {
+            padding: 10px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #fff;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #818cf8);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #059669, #34d399);
+        }
+
+        .btn-amber {
+            background: linear-gradient(135deg, #d97706, #fbbf24);
+        }
+
+        .btn-pink {
+            background: linear-gradient(135deg, #db2777, #f472b6);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 16px rgba(99, 102, 241, .5);
+        }
+
+        .btn-danger:hover {
+            box-shadow: 0 4px 16px rgba(239, 68, 68, .5);
+        }
+
+        .btn-success:hover {
+            box-shadow: 0 4px 16px rgba(5, 150, 105, .5);
+        }
+
+        .btn-amber:hover {
+            box-shadow: 0 4px 16px rgba(217, 119, 6, .5);
+        }
+
+        .btn-pink:hover {
+            box-shadow: 0 4px 16px rgba(219, 39, 119, .5);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        /* ===== Status Messages ===== */
+        .status {
+            font-size: 0.88rem;
+            min-height: 22px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .s-ok {
+            color: #34d399;
+        }
+
+        .s-warn {
+            color: #fbbf24;
+        }
+
+        .s-err {
+            color: #f87171;
+        }
+
+        .s-info {
+            color: #818cf8;
+        }
+
+        .s-load {
+            color: #a78bfa;
+        }
+
+        /* ===== Table ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            background: rgba(129, 140, 248, 0.18);
+            color: #c4b5fd;
+            padding: 10px 12px;
+            text-align: left;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        thead th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        thead th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            font-size: 0.9rem;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, .04);
+        }
+
+        /* ===== Tags & Badges ===== */
+        .dept-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            background: rgba(244, 114, 182, .15);
+            color: #f472b6;
+            border: 1px solid rgba(244, 114, 182, .25);
+        }
+
+        .course-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(52, 211, 153, .1);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, .25);
+            margin: 4px 4px 4px 0;
+        }
+
+        .total-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: rgba(251, 191, 36, .1);
+            border: 1px solid rgba(251, 191, 36, .25);
+            color: #fbbf24;
+            margin-top: 10px;
+        }
+
+        /* ===== Loader ===== */
+        .loader-inline {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 3px solid rgba(255, 255, 255, .15);
+            border-top-color: #a78bfa;
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn .35s ease;
+        }
+
+        /* ===== Search Result ===== */
+        .search-card {
+            background: rgba(99, 102, 241, .1);
+            border: 1px solid rgba(99, 102, 241, .25);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 10px;
+            animation: fadeIn .35s ease;
+        }
+
+        .search-card p {
+            margin-bottom: 5px;
+            font-size: 0.92rem;
+        }
+
+        .search-card strong {
+            color: #c4b5fd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== Page Header ===== -->
+    <div class="page-header">
+        <h1>🎓 Mini University Portal</h1>
+        <p>Demonstrating Class · Map · Set · Promise</p>
+    </div>
+
+    <div class="grid">
+
+        <!-- ================================ -->
+        <!-- CARD 1: Add Student              -->
+        <!-- ================================ -->
+        <div class="card">
+            <h2>➕ Add Student</h2>
+            <div class="form-group">
+                <div class="form-row">
+                    <input type="number" id="addId" placeholder="ID" min="1" />
+                    <input type="text" id="addName" placeholder="Name" />
+                </div>
+                <div class="form-row">
+                    <input type="number" id="addAge" placeholder="Age" min="15" max="60" />
+                    <input type="text" id="addDept" placeholder="Department" />
+                </div>
+            </div>
+            <button class="btn btn-primary" id="addBtn">Add Student</button>
+            <p class="status" id="addStatus"></p>
+        </div>
+
+        <!-- ================================ -->
+        <!-- CARD 2: Search / Delete Student  -->
+        <!-- ================================ -->
+        <div class="card">
+            <h2>🔍 Search & Delete Student</h2>
+            <div class="form-group">
+                <input type="number" id="queryId" placeholder="Enter Student ID…" min="1" />
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-success" id="searchBtn">🔍 Search</button>
+                <button class="btn btn-danger" id="deleteBtn">🗑️ Delete</button>
+                <button class="btn btn-amber" id="totalBtn">📊 Total Students</button>
+            </div>
+            <p class="status" id="queryStatus"></p>
+            <div id="queryResult"></div>
+        </div>
+
+        <!-- ================================ -->
+        <!-- CARD 3: Course Registration (Set)-->
+        <!-- ================================ -->
+        <div class="card">
+            <h2>📚 Course Registration (Set)</h2>
+            <div class="form-group">
+                <div class="form-row">
+                    <input type="text" id="courseInput" placeholder="Course name…" />
+                    <button class="btn btn-pink" id="addCourseBtn">+ Add</button>
+                </div>
+            </div>
+            <button class="btn btn-success" id="showCoursesBtn">Show All Courses</button>
+            <p class="status" id="courseStatus"></p>
+            <div id="courseOutput"></div>
+        </div>
+
+        <!-- ================================ -->
+        <!-- CARD 4: All Students Table       -->
+        <!-- ================================ -->
+        <div class="card">
+            <h2>📋 All Students</h2>
+            <button class="btn btn-primary" id="showAllBtn">Show All Students</button>
+            <div id="studentTableArea"></div>
+        </div>
+
+    </div><!-- /grid -->
+
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

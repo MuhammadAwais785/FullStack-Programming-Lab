@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3 - Server Data Loading with Promises</title>
+    <style>
+        /* ===== Global Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #e0e0e0;
+        }
+
+        /* ===== Card Container ===== */
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 550px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #9ca3af;
+            margin-bottom: 28px;
+        }
+
+        /* ===== Button ===== */
+        #fetchBtn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #7c3aed, #3b82f6);
+            color: #fff;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 24px;
+        }
+
+        #fetchBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.5);
+        }
+
+        #fetchBtn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* ===== Loading Spinner ===== */
+        .loader {
+            text-align: center;
+            padding: 20px 0;
+            display: none;
+        }
+
+        .loader .spinner {
+            width: 36px;
+            height: 36px;
+            border: 4px solid rgba(255, 255, 255, 0.15);
+            border-top-color: #a78bfa;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== User List ===== */
+        #userList {
+            list-style: none;
+            padding: 0;
+        }
+
+        #userList li {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: fadeIn 0.4s ease forwards;
+            opacity: 0;
+        }
+
+        #userList li .id-badge {
+            background: linear-gradient(135deg, #7c3aed, #3b82f6);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* stagger animation delay for each list item */
+        #userList li:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        #userList li:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        #userList li:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        #userList li:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        #userList li:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        /* ===== Error Message ===== */
+        #errorMsg {
+            display: none;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            padding: 14px 18px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>👥 User Directory</h1>
+        <p class="subtitle">Simulating server data loading with Promises</p>
+
+        <!-- Button to trigger the fetch -->
+        <button id="fetchBtn">Fetch Users from Server</button>
+
+        <!-- Loading indicator (hidden by default) -->
+        <div class="loader" id="loader">
+            <div class="spinner"></div>
+            <p>Loading users from server…</p>
+        </div>
+
+        <!-- Dynamic user list rendered here -->
+        <ul id="userList"></ul>
+
+        <!-- Error message displayed here on rejection -->
+        <p id="errorMsg"></p>
+    </div>
+
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>
