@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag-and-Drop Sortable List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔀 Drag-and-Drop Sortable List</h1>
+        <p class="subtitle">Drag and drop items to reorder them. The order updates in real-time.</p>
+
+        <!-- Controls -->
+        <div class="controls-section">
+            <button id="addItemBtn" class="btn btn-add">➕ Add New Item</button>
+            <button id="resetBtn" class="btn btn-reset">🔄 Reset Order</button>
+            <button id="exportBtn" class="btn btn-export">📋 Export List</button>
+        </div>
+
+        <!-- Drag Info -->
+        <div id="dragInfo" class="drag-info hidden">
+            <span id="dragText">Dragging item...</span>
+        </div>
+
+        <!-- Sortable List Container -->
+        <div id="sortableList" class="sortable-list">
+            <!-- Items will be generated with default list -->
+            <div class="list-item" draggable="true">
+                <span class="drag-handle">⋮⋮</span>
+                <span class="item-number">1</span>
+                <input type="text" class="item-text" value="Learn jQuery Basics" readonly>
+                <span class="item-priority priority-high">HIGH</span>
+                <button class="btn-delete">✕</button>
+            </div>
+            <div class="list-item" draggable="true">
+                <span class="drag-handle">⋮⋮</span>
+                <span class="item-number">2</span>
+                <input type="text" class="item-text" value="Master DOM Manipulation" readonly>
+                <span class="item-priority priority-high">HIGH</span>
+                <button class="btn-delete">✕</button>
+            </div>
+            <div class="list-item" draggable="true">
+                <span class="drag-handle">⋮⋮</span>
+                <span class="item-number">3</span>
+                <input type="text" class="item-text" value="Practice Event Handling" readonly>
+                <span class="item-priority priority-medium">MEDIUM</span>
+                <button class="btn-delete">✕</button>
+            </div>
+            <div class="list-item" draggable="true">
+                <span class="drag-handle">⋮⋮</span>
+                <span class="item-number">4</span>
+                <input type="text" class="item-text" value="CSS Animations & Effects" readonly>
+                <span class="item-priority priority-medium">MEDIUM</span>
+                <button class="btn-delete">✕</button>
+            </div>
+            <div class="list-item" draggable="true">
+                <span class="drag-handle">⋮⋮</span>
+                <span class="item-number">5</span>
+                <input type="text" class="item-text" value="Build Real Projects" readonly>
+                <span class="item-priority priority-low">LOW</span>
+                <button class="btn-delete">✕</button>
+            </div>
+            <div class="list-item" draggable="true">
+                <span class="drag-handle">⋮⋮</span>
+                <span class="item-number">6</span>
+                <input type="text" class="item-text" value="Master AJAX Requests" readonly>
+                <span class="item-priority priority-high">HIGH</span>
+                <button class="btn-delete">✕</button>
+            </div>
+            <div class="list-item" draggable="true">
+                <span class="drag-handle">⋮⋮</span>
+                <span class="item-number">7</span>
+                <input type="text" class="item-text" value="Optimize Performance" readonly>
+                <span class="item-priority priority-medium">MEDIUM</span>
+                <button class="btn-delete">✕</button>
+            </div>
+            <div class="list-item" draggable="true">
+                <span class="drag-handle">⋮⋮</span>
+                <span class="item-number">8</span>
+                <input type="text" class="item-text" value="Deploy Your Application" readonly>
+                <span class="item-priority priority-low">LOW</span>
+                <button class="btn-delete">✕</button>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-item">
+                <span class="stat-label">Total Items:</span>
+                <span class="stat-value" id="totalItems">8</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Last Updated:</span>
+                <span class="stat-value" id="lastUpdated">Just now</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Drag Status:</span>
+                <span class="stat-value" id="dragStatus">Ready</span>
+            </div>
+        </div>
+
+        <!-- Order Preview -->
+        <div class="order-preview">
+            <h3>📊 Current Order:</h3>
+            <div id="orderList" class="order-list">
+                <!-- Order will be displayed here -->
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message hidden">
+            <span id="successText">Item moved successfully!</span>
+        </div>
+
+        <div class="info">
+            <p><strong>Features Used:</strong> jQuery DOM Manipulation, Event Handling (Drag Events), CSS Manipulation
+            </p>
+            <p><strong>How to Use:</strong> Click and hold the drag handle (⋮⋮) or anywhere on the item to drag it. Drop
+                it in a new position to reorder. You can also add new items, delete items, or reset the order.</p>
+            <p><strong>Drag Events Used:</strong> dragstart, dragover, drop, dragend, dragenter, dragleave</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

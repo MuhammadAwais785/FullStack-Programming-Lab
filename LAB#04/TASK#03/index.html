@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Interactive Form Validation</h1>
+        <p class="subtitle">Fill out the form below. Fields are validated on blur.</p>
+
+        <form id="validationForm" class="form">
+            <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Enter your full name"
+                    data-validation="name" required>
+                <div class="error-message" id="fullNameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+                    data-validation="email" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" class="form-control"
+                    placeholder="Enter your phone (10 digits)" data-validation="phone" required>
+                <div class="error-message" id="phoneError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" class="form-control"
+                    placeholder="Min 8 characters, 1 uppercase, 1 number" data-validation="password" required>
+                <div class="error-message" id="passwordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password *</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+                    placeholder="Re-enter your password" data-validation="confirmPassword" required>
+                <div class="error-message" id="confirmPasswordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message (Optional)</label>
+                <textarea id="message" name="message" class="form-control"
+                    placeholder="Enter your message (max 200 characters)" data-validation="message" rows="4"></textarea>
+                <div class="error-message" id="messageError"></div>
+            </div>
+
+            <div class="form-group checkbox">
+                <input type="checkbox" id="terms" name="terms" data-validation="terms" required>
+                <label for="terms" class="checkbox-label">I agree to the terms and conditions *</label>
+                <div class="error-message" id="termsError"></div>
+            </div>
+
+            <button type="submit" class="btn btn-submit">Submit Form</button>
+            <button type="reset" class="btn btn-reset">Reset</button>
+        </form>
+
+        <div id="successMessage" class="success-message hidden">
+            <div class="success-content">
+                <h2>✓ Success!</h2>
+                <p>Your form has been submitted successfully.</p>
+                <p class="submitted-email" id="submittedEmail"></p>
+                <button type="button" id="closeSuccess" class="btn btn-close">Close</button>
+            </div>
+        </div>
+
+        <div class="info">
+            <p><strong>Features Used:</strong> jQuery Event Handling, CSS Manipulation, DOM Manipulation</p>
+            <p><strong>Validation Rules:</strong></p>
+            <ul>
+                <li>Full Name: At least 3 characters</li>
+                <li>Email: Valid email format</li>
+                <li>Phone: 10 digits only</li>
+                <li>Password: Min 8 chars, 1 uppercase, 1 number</li>
+                <li>Confirm Password: Must match password</li>
+                <li>Message: Max 200 characters</li>
+                <li>Terms: Must be checked</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

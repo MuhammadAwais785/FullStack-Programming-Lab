@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chained Style Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Chained Style Editor</h1>
+        <p class="subtitle">Click buttons below to apply multiple styles to the text using jQuery chaining</p>
+
+        <!-- Text Block to be Styled -->
+        <div class="text-block-wrapper">
+            <div id="textBlock" class="text-block">
+                <p>
+                    Welcome to the Chained Style Editor! This is a demonstration of jQuery's powerful chaining
+                    feature. Click any button below to apply different styles to this text. You can combine
+                    multiple styles to create unique text appearances. The best part is that jQuery chaining
+                    allows us to apply all these changes efficiently and smoothly.
+                </p>
+            </div>
+        </div>
+
+        <!-- Control Panels -->
+        <div class="controls-wrapper">
+            <!-- Font Size Controls -->
+            <div class="control-panel">
+                <h3>📐 Font Size</h3>
+                <div class="button-group">
+                    <button class="btn btn-size" data-size="12">Small (12px)</button>
+                    <button class="btn btn-size" data-size="16">Normal (16px)</button>
+                    <button class="btn btn-size active" data-size="20">Large (20px)</button>
+                    <button class="btn btn-size" data-size="28">Extra Large (28px)</button>
+                </div>
+            </div>
+
+            <!-- Color Controls -->
+            <div class="control-panel">
+                <h3>🎨 Text Color</h3>
+                <div class="button-group">
+                    <button class="btn btn-color active" data-color="#333333">
+                        <span class="color-dot" style="background: #333333;"></span> Black
+                    </button>
+                    <button class="btn btn-color" data-color="#e74c3c">
+                        <span class="color-dot" style="background: #e74c3c;"></span> Red
+                    </button>
+                    <button class="btn btn-color" data-color="#3498db">
+                        <span class="color-dot" style="background: #3498db;"></span> Blue
+                    </button>
+                    <button class="btn btn-color" data-color="#27ae60">
+                        <span class="color-dot" style="background: #27ae60;"></span> Green
+                    </button>
+                    <button class="btn btn-color" data-color="#f39c12">
+                        <span class="color-dot" style="background: #f39c12;"></span> Orange
+                    </button>
+                    <button class="btn btn-color" data-color="#9b59b6">
+                        <span class="color-dot" style="background: #9b59b6;"></span> Purple
+                    </button>
+                </div>
+            </div>
+
+            <!-- Background Controls -->
+            <div class="control-panel">
+                <h3>🎯 Background Color</h3>
+                <div class="button-group">
+                    <button class="btn btn-bg active" data-bg="#ffffff">
+                        <span class="color-dot" style="background: #ffffff; border: 1px solid #ccc;"></span> White
+                    </button>
+                    <button class="btn btn-bg" data-bg="#fff9e6">
+                        <span class="color-dot" style="background: #fff9e6;"></span> Cream
+                    </button>
+                    <button class="btn btn-bg" data-bg="#e8f8f5">
+                        <span class="color-dot" style="background: #e8f8f5;"></span> Light Blue
+                    </button>
+                    <button class="btn btn-bg" data-bg="#fdf2e9">
+                        <span class="color-dot" style="background: #fdf2e9;"></span> Light Orange
+                    </button>
+                    <button class="btn btn-bg" data-bg="#f4ecf7">
+                        <span class="color-dot" style="background: #f4ecf7;"></span> Light Purple
+                    </button>
+                    <button class="btn btn-bg" data-bg="#2c3e50">
+                        <span class="color-dot" style="background: #2c3e50;"></span> Dark
+                    </button>
+                </div>
+            </div>
+
+            <!-- Style Toggle Controls -->
+            <div class="control-panel">
+                <h3>✨ Text Style</h3>
+                <div class="button-group style-toggles">
+                    <button class="btn btn-toggle btn-bold" id="boldBtn" data-style="bold">
+                        <strong>B</strong> Bold
+                    </button>
+                    <button class="btn btn-toggle btn-italic" id="italicBtn" data-style="italic">
+                        <em>I</em> Italic
+                    </button>
+                    <button class="btn btn-toggle btn-underline" id="underlineBtn" data-style="underline">
+                        <u>U</u> Underline
+                    </button>
+                </div>
+            </div>
+
+            <!-- Shadow & Effect Controls -->
+            <div class="control-panel">
+                <h3>💫 Effects</h3>
+                <div class="button-group style-toggles">
+                    <button class="btn btn-toggle btn-shadow" id="shadowBtn" data-effect="shadow">
+                        🌑 Text Shadow
+                    </button>
+                    <button class="btn btn-toggle btn-glow" id="glowBtn" data-effect="glow">
+                        💡 Glow Effect
+                    </button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="control-panel action-panel">
+                <h3>⚙️ Actions</h3>
+                <div class="button-group">
+                    <button class="btn btn-action btn-preset" id="presetBtn">
+                        🎨 Apply Preset Style
+                    </button>
+                    <button class="btn btn-action btn-reset" id="resetBtn">
+                        🔄 Reset All Styles
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Style Preview -->
+        <div class="style-preview">
+            <h3>Current Styles Applied:</h3>
+            <div id="styleInfo" class="style-info">
+                <p>Font Size: <strong id="sizeInfo">20px</strong></p>
+                <p>Text Color: <strong id="colorInfo">#333333</strong></p>
+                <p>Background: <strong id="bgInfo">#ffffff</strong></p>
+                <p>Effects: <strong id="effectsInfo">None</strong></p>
+            </div>
+        </div>
+
+        <div class="info">
+            <p><strong>Features Used:</strong> jQuery CSS Manipulation, Method Chaining, Event Handling</p>
+            <p><strong>Instructions:</strong> Click any button to apply styles to the text block. Use multiple buttons
+                to combine styles. The preset button applies a combination of styles using chaining.</p>
+            <p><strong>Chaining Example:</strong> jQuery allows you to chain multiple methods together like:
+                <code>$('#textBlock').css('fontSize', '28px').css('color', '#e74c3c').fadeIn();</code>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

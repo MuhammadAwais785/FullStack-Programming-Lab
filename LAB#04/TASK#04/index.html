@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Content with Smooth Scroll</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tabbed Content with Smooth Scroll</h1>
+        <p class="subtitle">Click on a tab to view its content and scroll smoothly to it</p>
+
+        <!-- Tab Navigation -->
+        <div class="tabs-header">
+            <div class="tabs-nav">
+                <button class="tab-button active" data-tab="overview">
+                    <span class="tab-icon">📋</span> Overview
+                </button>
+                <button class="tab-button" data-tab="features">
+                    <span class="tab-icon">⭐</span> Features
+                </button>
+                <button class="tab-button" data-tab="pricing">
+                    <span class="tab-icon">💰</span> Pricing
+                </button>
+                <button class="tab-button" data-tab="contact">
+                    <span class="tab-icon">📞</span> Contact
+                </button>
+                <button class="tab-button" data-tab="faq">
+                    <span class="tab-icon">❓</span> FAQ
+                </button>
+            </div>
+            <div class="tab-indicator"></div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tabs-content">
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active" data-tab="overview">
+                <div class="content-wrapper">
+                    <h2>Overview</h2>
+                    <p>
+                        Welcome to our tabbed content section! This interactive interface demonstrates smooth scrolling
+                        and dynamic content switching using jQuery. Click any tab above to explore different sections
+                        of our application.
+                    </p>
+                    <p>
+                        Each tab contains unique content that appears with a smooth fade-in animation. The smooth scroll
+                        feature automatically brings the content into view with an elegant animation effect.
+                    </p>
+                    <div class="highlight-box">
+                        <strong>💡 Tip:</strong> Use keyboard navigation with Tab key to move between tabs and Enter to
+                        select them.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Tab -->
+            <div id="features" class="tab-content" data-tab="features">
+                <div class="content-wrapper">
+                    <h2>Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Responsive Design</h3>
+                            <p>Works seamlessly on mobile, tablet, and desktop devices</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Smooth Animations</h3>
+                            <p>Elegant fade-in and scroll effects for better UX</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">♿</div>
+                            <h3>Accessibility</h3>
+                            <p>ARIA labels and keyboard navigation support</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚙️</div>
+                            <h3>Easy to Customize</h3>
+                            <p>Well-structured code for easy modifications</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Tab -->
+            <div id="pricing" class="tab-content" data-tab="pricing">
+                <div class="content-wrapper">
+                    <h2>Pricing Plans</h2>
+                    <p>Choose the plan that best fits your needs:</p>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h3>Starter</h3>
+                            <div class="price">$9<span>/month</span></div>
+                            <ul class="pricing-features">
+                                <li>✓ 5 Projects</li>
+                                <li>✓ Basic Support</li>
+                                <li>✓ 5GB Storage</li>
+                                <li>✗ Advanced Analytics</li>
+                            </ul>
+                            <button class="btn btn-pricing">Get Started</button>
+                        </div>
+                        <div class="pricing-card featured">
+                            <div class="badge">POPULAR</div>
+                            <h3>Professional</h3>
+                            <div class="price">$29<span>/month</span></div>
+                            <ul class="pricing-features">
+                                <li>✓ Unlimited Projects</li>
+                                <li>✓ Priority Support</li>
+                                <li>✓ 100GB Storage</li>
+                                <li>✓ Advanced Analytics</li>
+                            </ul>
+                            <button class="btn btn-pricing btn-featured">Get Started</button>
+                        </div>
+                        <div class="pricing-card">
+                            <h3>Enterprise</h3>
+                            <div class="price">Custom</div>
+                            <ul class="pricing-features">
+                                <li>✓ Everything in Pro</li>
+                                <li>✓ Dedicated Support</li>
+                                <li>✓ Unlimited Storage</li>
+                                <li>✓ Custom Integration</li>
+                            </ul>
+                            <button class="btn btn-pricing">Contact Sales</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Tab -->
+            <div id="contact" class="tab-content" data-tab="contact">
+                <div class="content-wrapper">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as
+                        possible.</p>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Send Message</button>
+                    </form>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <strong>📧 Email:</strong> info@example.com
+                        </div>
+                        <div class="info-item">
+                            <strong>📞 Phone:</strong> +1 (555) 123-4567
+                        </div>
+                        <div class="info-item">
+                            <strong>📍 Address:</strong> 123 Main Street, City, State 12345
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Tab -->
+            <div id="faq" class="tab-content" data-tab="faq">
+                <div class="content-wrapper">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>What is jQuery?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML
+                                document traversal and manipulation, event handling, and animation much simpler with an
+                                easy-to-use API that works across a multitude of browsers.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>How do tabs work in this demo?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Clicking a tab button triggers jQuery event handlers that hide the current content,
+                                show the selected content with fade animation, and smoothly scroll the page to display
+                                it.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Can I customize the colors and styles?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Absolutely! All colors, fonts, and animations are defined in the CSS file. You can
+                                easily
+                                modify them to match your brand or preferences.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Is this mobile-friendly?</span>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Yes! The entire tab interface is fully responsive and works great on mobile devices,
+                                tablets,
+                                and desktops. The layout adapts to different screen sizes automatically.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info">
+            <p><strong>Features Used:</strong> jQuery DOM Manipulation, Effects & Animations, Event Handling, Smooth
+                Scroll</p>
+            <p><strong>Instructions:</strong> Click on any tab to view its content. The page will smoothly scroll to
+                show the selected tab's content with a fade-in animation.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
