@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dynamic List Manager</h1>
+        <div class="input-section">
+            <input type="text" id="itemInput" class="input-field" placeholder="Enter a new item...">
+            <button id="addBtn" class="add-btn">Add Item</button>
+        </div>
+
+        <div class="list-section">
+            <h2>My Items</h2>
+            <ul id="itemList" class="item-list">
+                <!-- List items will be dynamically added here -->
+            </ul>
+            <p id="emptyMessage" class="empty-message">No items yet. Add one to get started!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
