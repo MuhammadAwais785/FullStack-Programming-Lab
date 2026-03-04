@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Animated Image Gallery</h1>
+
+        <div class="gallery-wrapper">
+            <div class="gallery-container">
+                <img id="galleryImage" src="https://picsum.photos/600/400?random=1" alt="Gallery Image"
+                    class="gallery-image">
+                <div id="caption" class="caption">Beautiful Landscape 1</div>
+            </div>
+
+            <div class="controls">
+                <button id="prevBtn" class="btn btn-prev">❮ Previous</button>
+                <span id="counter" class="counter">1 / 5</span>
+                <button id="nextBtn" class="btn btn-next">Next ❯</button>
+            </div>
+        </div>
+
+        <div class="info">
+            <p><strong>Features Used:</strong> jQuery Fade Effects, DOM Manipulation, Method Chaining</p>
+            <p><strong>Instructions:</strong> Click Previous and Next buttons to navigate through the gallery with
+                smooth fade transitions.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
