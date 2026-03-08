@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category - Hot Tub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- LAYER 1: HEADER -->
+    <div class="w-full bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-center py-3 gap-3 md:gap-0">
+                <!-- Left Side: Customer Support -->
+                <div id="header-support">
+                    <p class="text-xs md:text-sm text-red-600 font-semibold">
+                        Call to Customer support:
+                        <span class="text-red-600">020 0180090506</span>
+                    </p>
+                </div>
+
+                <!-- Right Side: Account Links -->
+                <div id="header-links" class="flex gap-4 md:gap-6 items-center text-xs md:text-sm mr-0 md:mr-10">
+                    <a href="#" id="my-account-link" class="text-gray-700 hover:text-red-600">My Account</a>
+                    <a href="#" id="wishlist-link" class="text-gray-700 hover:text-red-600">Wishlist</a>
+                    <a href="#" id="checkout-link" class="text-gray-700 hover:text-red-600">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 1 -->
+
+    <!-- LAYER 2: NAVIGATION BAR -->
+    <div class="w-full bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-12">
+            <div class="flex justify-between items-center py-3">
+                <!-- Logo -->
+                <div id="nav-logo">
+                    <h2 class="text-xl font-bold">
+                        <span class="text-red-600">HOTSPRING</span>
+                        <span class="text-gray-800">®</span>
+                        <br>
+                        <span class="text-xs text-red-600">Portable Spas</span>
+                    </h2>
+                </div>
+
+                <!-- My Cart Button with Dropdown -->
+                <div id="nav-cart" class="flex items-center gap-2 relative">
+                    <button id="cart-btn"
+                        class="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded text-sm font-semibold hover:bg-red-700">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1h7.586a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM5 16a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                        My Cart (0 items)
+                        <svg id="cart-dropdown-arrow" class="w-4 h-4 ml-1 transition-transform" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div id="cart-dropdown"
+                        class="hidden absolute top-full right-0 mt-2 w-48 bg-white border border-gray-300 rounded shadow-lg z-10">
+                        <div class="p-4 text-center text-gray-600 text-sm">
+                            Your cart is empty
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 2 -->
+
+    <!-- LAYER 3: RED NAVIGATION BAR -->
+    <div class="w-full bg-red-600">
+        <div class="max-w-7xl mx-auto px-4 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-center py-3 gap-4">
+                <!-- Navigation Links -->
+                <nav id="layer3-nav" class="flex gap-2 md:gap-6 w-full md:w-auto justify-center md:justify-start">
+                    <a href="#" id="nav-category"
+                        class="text-white font-semibold text-xs md:text-sm hover:bg-red-700 px-2 md:px-4 py-2 transition">CATEGORY</a>
+                    <a href="#" id="nav-brand"
+                        class="text-white font-semibold text-xs md:text-sm hover:bg-red-700 px-2 md:px-4 py-2 transition">BRAND</a>
+                    <a href="#" id="nav-info"
+                        class="text-white font-semibold text-xs md:text-sm hover:bg-red-700 px-2 md:px-4 py-2 transition">INFO</a>
+                </nav>
+
+                <!-- Search Bar -->
+                <div id="layer3-search" class="flex items-center gap-0 ml-auto w-full md:w-auto">
+                    <input type="text" placeholder="Search" id="layer3-search-input"
+                        class="px-3 md:px-4 py-2 text-xs md:text-sm flex-grow md:flex-grow-0 md:w-72 focus:outline-none">
+                    <button id="layer3-search-btn"
+                        class="bg-black text-white px-4 md:px-6 py-2 text-xs md:text-sm font-semibold hover:bg-gray-800">SEARCH</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 3 -->
+
+    <!-- LAYER 4: SHOPPING PAGE LAYOUT -->
+    <div class="w-full bg-white flex-grow py-8 md:py-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-12">
+
+            <!-- BREADCRUMB NAVIGATION -->
+            <div class="text-xs md:text-sm text-gray-700 mb-6">
+                <a href="Hottub_main.html" class="text-gray-700 hover:text-red-600">Home</a>
+                <span class="mx-2">›</span>
+                <span class="text-gray-600">Category</span>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
+
+                <!-- LEFT SIDEBAR: SHOPPING OPTIONS -->
+                <div class="w-full lg:w-64 lg:flex-shrink-0">
+                    <h3 class="text-base md:text-lg font-bold text-gray-800 mb-6">Shopping Options</h3>
+
+                    <!-- SEATING CAPACITY -->
+                    <div class="mb-8">
+                        <h4 class="text-sm font-semibold text-gray-600 uppercase mb-4">Seating Capacity</h4>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="text-red-600 text-sm hover:font-semibold transition">2-4 PEOPLE</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">5-7 PEOPLE</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">8 PEOPLE AND
+                                    MORE</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- CHOOSE SIZES -->
+                    <div class="mb-8">
+                        <h4 class="text-sm font-semibold text-gray-600 uppercase mb-4">Choose Sizes</h4>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">5-6 FEET
+                                    LONG</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">6-7 FEET
+                                    LONG</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">7-8 FEET
+                                    LONG</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">8 FEET TO LARGE
+                                    SIZE</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- SPAS BY TYPE -->
+                    <div class="mb-8">
+                        <h4 class="text-sm font-semibold text-gray-600 uppercase mb-4">Spas By Type</h4>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">PLUG AND PLAY
+                                    110 VOLT</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">TV - STEREO
+                                    SPAS</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">CORNER SPAS</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">PORTABLE
+                                    SPAS</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">DEEPER SPAS</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- PRICE RANGES FROM -->
+                    <div class="mb-8">
+                        <h4 class="text-sm font-semibold text-gray-600 uppercase mb-4">Price Ranges From</h4>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">UNDER $3,000</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">$3,000 TO
+                                    4,000</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">$4,000 TO
+                                    5,000</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">$5,000 TO
+                                    6,000</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-700 text-sm hover:text-red-600 transition">$6,000 +</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RIGHT SECTION: PRODUCT LISTING -->
+                <div class="flex-grow">
+                    <!-- HEADER -->
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                        <h3 class="text-base md:text-lg font-bold text-gray-800">Top Product Listing</h3>
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                            <span class="text-xs md:text-sm text-gray-600">6 item(s)</span>
+                            <select
+                                class="px-3 md:px-4 py-1 md:py-2 border border-gray-300 rounded text-xs md:text-sm focus:outline-none">
+                                <option>Show 9</option>
+                                <option>Show 12</option>
+                                <option>Show 24</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTS GRID -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+                        <!-- PRODUCT CARD 1 -->
+                        <div class="bg-white border border-gray-200 rounded overflow-hidden hover:shadow-lg transition">
+                            <div class="bg-gray-100 h-48 flex items-center justify-center">
+                                <img src="product1-spa.jpg" alt="XS SCYBA X SERIES 119"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="text-xs md:text-sm font-semibold text-gray-800 mb-2">XS SCYBA X SERIES 119
+                                </h4>
+                                <p class="text-xs text-gray-600 mb-4">The goods of our stores are very reliable and our
+                                    we care about the customer</p>
+                                <p class="text-base md:text-lg font-bold text-red-600 mb-4">$500.00</p>
+                                <button
+                                    class="w-full bg-red-600 text-white py-2 rounded text-xs md:text-sm font-semibold hover:bg-red-700 transition mb-3 flex items-center justify-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1h7.586a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM5 16a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                    ADD TO CART
+                                </button>
+                                <div class="flex gap-4 text-xs">
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">ADD TO WISH LIST</a>
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">MORE DETAILS</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT CARD 2 -->
+                        <div class="bg-white border border-gray-200 rounded overflow-hidden hover:shadow-lg transition">
+                            <div class="bg-gray-100 h-48 flex items-center justify-center">
+                                <img src="product2-spa.jpg" alt="XS SCYBA X SERIES 119"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="text-sm font-semibold text-gray-800 mb-2">XS SCYBA X SERIES 119</h4>
+                                <p class="text-xs text-gray-600 mb-4">The goods of our stores are very reliable and our
+                                    we care about the customer</p>
+                                <p class="text-lg font-bold text-red-600 mb-4">$500.00</p>
+                                <button
+                                    class="w-full bg-red-600 text-white py-2 rounded text-sm font-semibold hover:bg-red-700 transition mb-3 flex items-center justify-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1h7.586a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM5 16a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                    ADD TO CART
+                                </button>
+                                <div class="flex gap-4 text-xs">
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">ADD TO WISH LIST</a>
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">MORE DETAILS</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT CARD 3 -->
+                        <div class="bg-white border border-gray-200 rounded overflow-hidden hover:shadow-lg transition">
+                            <div class="bg-blue-100 h-48 flex items-center justify-center">
+                                <img src="product3-spa.jpg" alt="XS SCYBA X SERIES 119"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="text-sm font-semibold text-gray-800 mb-2">XS SCYBA X SERIES 119</h4>
+                                <p class="text-xs text-gray-600 mb-4">The goods of our stores are very reliable and our
+                                    we care about the customer</p>
+                                <p class="text-lg font-bold text-red-600 mb-4">$500.00</p>
+                                <button
+                                    class="w-full bg-red-600 text-white py-2 rounded text-sm font-semibold hover:bg-red-700 transition mb-3 flex items-center justify-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1h7.586a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM5 16a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                    ADD TO CART
+                                </button>
+                                <div class="flex gap-4 text-xs">
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">ADD TO WISH LIST</a>
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">MORE DETAILS</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT CARD 4 -->
+                        <div class="bg-white border border-gray-200 rounded overflow-hidden hover:shadow-lg transition">
+                            <div class="bg-gray-100 h-48 flex items-center justify-center">
+                                <img src="product4-spa.jpg" alt="XS SCYBA X SERIES 119"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="text-sm font-semibold text-gray-800 mb-2">XS SCYBA X SERIES 119</h4>
+                                <p class="text-xs text-gray-600 mb-4">The goods of our stores are very reliable and our
+                                    we care about the customer</p>
+                                <p class="text-lg font-bold text-red-600 mb-4">$500.00</p>
+                                <button
+                                    class="w-full bg-red-600 text-white py-2 rounded text-sm font-semibold hover:bg-red-700 transition mb-3 flex items-center justify-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1h7.586a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM5 16a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                    ADD TO CART
+                                </button>
+                                <div class="flex gap-4 text-xs">
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">ADD TO WISH LIST</a>
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">MORE DETAILS</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT CARD 5 -->
+                        <div class="bg-white border border-gray-200 rounded overflow-hidden hover:shadow-lg transition">
+                            <div class="bg-gray-100 h-48 flex items-center justify-center">
+                                <img src="product1-spa.jpg" alt="XS SCYBA X SERIES 119"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="text-sm font-semibold text-gray-800 mb-2">XS SCYBA X SERIES 119</h4>
+                                <p class="text-xs text-gray-600 mb-4">The goods of our stores are very reliable and our
+                                    we care about the customer</p>
+                                <p class="text-lg font-bold text-red-600 mb-4">$500.00</p>
+                                <button
+                                    class="w-full bg-red-600 text-white py-2 rounded text-sm font-semibold hover:bg-red-700 transition mb-3 flex items-center justify-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1h7.586a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM5 16a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                    ADD TO CART
+                                </button>
+                                <div class="flex gap-4 text-xs">
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">ADD TO WISH LIST</a>
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">MORE DETAILS</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUCT CARD 6 -->
+                        <div class="bg-white border border-gray-200 rounded overflow-hidden hover:shadow-lg transition">
+                            <div class="bg-gray-100 h-48 flex items-center justify-center">
+                                <img src="product2-spa.jpg" alt="XS SCYBA X SERIES 119"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="text-sm font-semibold text-gray-800 mb-2">XS SCYBA X SERIES 119</h4>
+                                <p class="text-xs text-gray-600 mb-4">The goods of our stores are very reliable and our
+                                    we care about the customer</p>
+                                <p class="text-lg font-bold text-red-600 mb-4">$500.00</p>
+                                <button
+                                    class="w-full bg-red-600 text-white py-2 rounded text-sm font-semibold hover:bg-red-700 transition mb-3 flex items-center justify-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1h7.586a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM5 16a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                    ADD TO CART
+                                </button>
+                                <div class="flex gap-4 text-xs">
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">ADD TO WISH LIST</a>
+                                    <a href="#" class="text-red-600 hover:font-semibold transition">MORE DETAILS</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- END LAYER 4 -->
+
+    <!-- LAYER 7: FOOTER -->
+    <div class="w-full bg-gray-900 text-white py-10 md:py-14">
+        <div class="max-w-7xl mx-auto px-4 md:px-12">
+            <div class="bg-gray-800 rounded-lg shadow-lg p-8 md:p-10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+                    <!-- COLUMN 1: CONTACT US -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-4 pb-2 border-b border-gray-700">CONTACT US</h3>
+                        <div class="text-sm space-y-3">
+                            <p class="text-gray-400">
+                                <span class="text-white font-semibold">Email: </span>
+                                <a href="mailto:youremail@email.com" class="hover:text-red-600">youremail@email.com</a>
+                            </p>
+                            <p class="text-gray-400">
+                                <span class="text-white font-semibold">CALL 24/7:</span><br>
+                                <span class="text-white">888 - 201 - 0896</span>
+                            </p>
+                            <div>
+                                <p class="text-white font-semibold mb-1">Your Address:</p>
+                                <p class="text-gray-400">123 Street Name</p>
+                                <p class="text-gray-400">Suite 3- Zip Code</p>
+                                <p class="text-gray-400">City & Country</p>
+                                <p class="text-gray-400">youremail@hotmail.com</p>
+                            </div>
+                            <div class="flex gap-3 mt-4">
+                                <a href="#"
+                                    class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a href="#"
+                                    class="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a href="#"
+                                    class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a href="#"
+                                    class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a href="#"
+                                    class="w-8 h-8 bg-pink-600 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m0 22.5C6.201 22.5 1.5 17.799 1.5 12S6.201 1.5 12 1.5 22.5 6.201 22.5 12 17.799 22.5 12 22.5m3.106-11.25a3.105 3.105 0 1 1-6.21 0 3.105 3.105 0 0 1 6.21 0m1.969-3.281a.726.726 0 1 1-1.452 0 .726.726 0 0 1 1.452 0m-10.5 6c0-.621.504-1.125 1.125-1.125h6.75c.621 0 1.125.504 1.125 1.125v6.75c0 .621-.504 1.125-1.125 1.125h-6.75c-.621 0-1.125-.504-1.125-1.125v-6.75z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 2: INFORMATION -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-4 pb-2 border-b border-gray-700">INFORMATION</h3>
+                        <ul class="text-sm space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-red-600 transition">ABOUT US</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-red-600 transition">CUSTOMER SERVICE</a>
+                            </li>
+                            <li><a href="#" class="text-gray-400 hover:text-red-600 transition">PRIVACY POLICY</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-red-600 transition">SITE MAP</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-red-600 transition">SEARCH TERMS</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-red-600 transition">CONTACT US</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-red-600 transition">ABOUT US</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- COLUMN 3: MY ACCOUNT -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-4 pb-2 border-b border-gray-700">MY ACCOUNT</h3>
+                        <ul class="text-sm space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-red-600 transition">SIGN IN</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-red-600 transition">VIEW CART</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-red-600 transition">MY WISH LIST</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- COLUMN 4: NEWSLETTER -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-4 pb-2 border-b border-gray-700">SIGNUP FOR A
+                            NEWSLETTER</h3>
+                        <div class="mb-4">
+                            <input type="email" placeholder="ENTER YOUR EMAIL HERE"
+                                class="w-full px-4 py-2 rounded text-sm text-gray-900 bg-white focus:outline-none mb-2">
+                            <button
+                                class="w-full bg-red-600 text-white px-4 py-2 rounded font-semibold hover:bg-red-700 transition text-sm">
+                                SUBSCRIBE
+                            </button>
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold text-gray-400 mb-2">PAYMENT SOLUTIONS</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <img src="payment-visa.png" alt="Visa" class="h-6 bg-white px-2 py-1 rounded">
+                                <img src="payment-mastercard.png" alt="Mastercard"
+                                    class="h-6 bg-white px-2 py-1 rounded">
+                                <img src="payment-amex.png" alt="American Express"
+                                    class="h-6 bg-white px-2 py-1 rounded">
+                                <img src="payment-paypal.png" alt="PayPal" class="h-6 bg-white px-2 py-1 rounded">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Footer Bottom -->
+                <div class="border-t border-gray-700 pt-6 text-center text-xs text-gray-400">
+                    <p>© 2024 Hottubsuperstore.com. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 7 -->
+
+</body>
+
+</html>
