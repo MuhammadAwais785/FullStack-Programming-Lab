@@ -114,7 +114,7 @@
     <!-- END LAYER 3 -->
 
     <!-- LAYER 4: SHOPPING PAGE LAYOUT -->
-    <div class="w-full bg-white flex-grow py-8 md:py-10">
+    <div class="w-full bg-transparent flex-grow py-8 md:py-10">
         <div class="max-w-7xl mx-auto px-4 md:px-12">
 
             <!-- BREADCRUMB NAVIGATION -->
@@ -523,12 +523,15 @@
                         <div>
                             <p class="text-xs font-semibold text-gray-400 mb-2">PAYMENT SOLUTIONS</p>
                             <div class="flex gap-2 flex-wrap">
-                                <img src="payment-visa.png" alt="Visa" class="h-6 bg-white px-2 py-1 rounded">
-                                <img src="payment-mastercard.png" alt="Mastercard"
-                                    class="h-6 bg-white px-2 py-1 rounded">
-                                <img src="payment-amex.png" alt="American Express"
-                                    class="h-6 bg-white px-2 py-1 rounded">
-                                <img src="payment-paypal.png" alt="PayPal" class="h-6 bg-white px-2 py-1 rounded">
+                                <!-- Actual files if present or fallbacks -->
+                                <img src="maestro.png" alt="maestro"
+                                    class="h-6 bg-white rounded px-2 py-1 object-contain">
+                                <img src="mastercard.png" alt="Mastercard"
+                                    class="h-6 bg-white rounded px-2 py-1 object-contain">
+                                <img src="american express.png" alt="Amex"
+                                    class="h-6 bg-white rounded px-2 py-1 object-contain">
+                                <img src="visa.png" alt="visa"
+                                    class="h-6 bg-white rounded px-2 py-1 object-contain">
                             </div>
                         </div>
                     </div>
