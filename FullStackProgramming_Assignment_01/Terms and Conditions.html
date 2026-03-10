@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions for Sale</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .custom-gradient {
+            background-color: #e5eef5; /* Base fallback */
+            background-image: linear-gradient(to bottom, rgba(230, 240, 248, 0.4) 0%, rgba(243, 244, 246, 1) 70%), url('ocean-bg.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+
+        /* Custom Input Styling */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            font-size: 11px;
+            color: #333;
+            outline: none;
+            width: 280px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #eb1b23;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen m-0 p-0 font-sans tracking-tight">
+
+    <!-- LAYER 1: HEADER (Gray Top Bar) -->
+    <div class="w-full bg-[#f8f8f8] border-b border-gray-200">
+        <div class="max-w-[1000px] mx-auto px-4 flex justify-between items-center py-2 text-[11px]">
+            <div class="text-gray-500">
+                Call for Customer support: <span class="text-[#eb1b23] font-semibold">020 38080565</span>
+            </div>
+            <div class="flex gap-6 text-gray-500">
+                <a href="MyAccount.html" class="hover:text-[#eb1b23]">My Account</a>
+                <a href="#" class="hover:text-[#eb1b23]">Wishlist</a>
+                <a href="Shopping Cart.html" class="hover:text-[#eb1b23]">To Checkout</a>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 1 -->
+
+    <!-- LAYER 2: LOGO CART (White Bar) -->
+    <div class="w-full bg-white">
+        <div class="max-w-[1000px] mx-auto px-4 flex justify-between items-center py-[18px]">
+            <!-- Logo -->
+            <div class="leading-none pt-1">
+                <a href="Hottub_main.html" class="text-[28px] font-bold m-0 p-0 flex items-start tracking-tighter no-underline hover:opacity-80 transition-opacity">
+                    <span class="text-[#d81a21]">HOTSPRING</span>
+                    <sup class="text-[10px] mt-[6px] ml-[2px] text-gray-700">®</sup>
+                </a>
+                <span class="text-[12px] font-bold text-[#d81a21] mt-1 inline-block">Portable Spas</span>
+            </div>
+
+            <!-- Cart Dropdown -->
+            <div class="flex items-stretch border border-gray-200 rounded-[2px] overflow-hidden bg-white hover:bg-gray-50 cursor-pointer shadow-sm h-[32px]">
+                <div class="bg-[#d81a21] px-2 flex items-center justify-center">
+                    <svg class="w-[18px] h-[18px] text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                </div>
+                <div class="px-3 flex items-center gap-6 min-w-[150px] justify-between">
+                    <span class="text-[11px] text-gray-600 font-semibold tracking-tight">My Cart: 0 items(s)</span>
+                    <svg class="w-2.5 h-2.5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 2 -->
+
+    <!-- LAYER 3: RED NAVIGATION BAR -->
+    <div class="w-full bg-[#eb1b23]">
+        <div class="max-w-[1000px] mx-auto px-4 h-9 flex justify-between items-center">
+            <!-- Navigation Links -->
+            <nav class="flex h-full items-center">
+                <a href="category.html" class="text-white text-[11px] font-semibold tracking-wider px-4 flex items-center h-full hover:bg-red-700">CATEGORY</a>
+                <span class="text-white text-[10px] opacity-[0.35]">|</span>
+                <a href="#" class="text-white text-[11px] font-semibold tracking-wider px-4 flex items-center h-full hover:bg-red-700">BRAND</a>
+                <span class="text-white text-[10px] opacity-[0.35]">|</span>
+                <a href="#" class="text-white text-[11px] font-semibold tracking-wider px-4 flex items-center h-full hover:bg-red-700">INFO</a>
+            </nav>
+
+            <!-- Search Bar -->
+            <div class="flex items-center h-[26px]">
+                <input type="text" placeholder="Search" class="h-full px-[10px] w-[250px] text-[11px] text-gray-500 border-none outline-none">
+                <button class="bg-[#383838] hover:bg-black text-white px-5 h-full text-[11px] font-bold">SEARCH</button>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 3 -->
+
+    <!-- BACKGROUND WRAPPER WITH OCEAN AND GRADIENT -->
+    <div class="w-full custom-gradient flex-grow flex flex-col items-center py-6 px-4">
+        
+        <!-- Form Container Wrapper to contain both text container and brands exactly like the image -->
+        <div class="w-full max-w-[1020px]">
+            <!-- WHITE CONTAINER -->
+            <div class="w-full bg-white pt-6 px-8 pb-10 shadow-sm min-h-[500px]">
+                
+                <!-- Breadcrumb -->
+                <div class="text-[10px] mb-5 pl-[2px]">
+                    <a href="Hottub_main.html" class="text-[#2f78c4] hover:underline">Home</a>
+                    <span class="text-black mx-[2px]">»</span>
+                    <a href="#" class="text-black hover:underline">Payments</a>
+                    <span class="text-black mx-[2px]">»</span>
+                    <span class="text-black">Terms and Conditions</span>
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-[20px] font-bold text-black mb-4 tracking-tight pl-[2px]">Terms and Conditions for Sale</h2>
+
+                <!-- Gray inner box for terms content -->
+                <div class="bg-[#f3f3f3] py-6 px-6 sm:px-10 border-t border-[#e2e2e2]">
+                    <!-- Sub Title -->
+                    <h3 class="text-[13px] font-bold text-black mb-1">General Terms and Conditions</h3>
+                    <p class="text-[11px] text-black mb-8 tracking-normal">General Terms and conditions for Business, Payment and Delivery For Hot tubs and Spas</p>
+
+                    <!-- Content Sections -->
+                    <div class="space-y-6 text-[11px] text-black tracking-normal leading-relaxed">
+                        
+                        <!-- 1. Interpretation -->
+                        <div>
+                            <h4 class="text-[12px] font-normal mb-1">1. Interpretation</h4>
+                            <p>In these conditions of sale:</p>
+                            <p>‘the Company’ means The Edge (Systems) Limited</p>
+                            <p>‘the Buyer’ means the person or firm or Company ordering, buying, hiring or being loaned goods from the Company.</p>
+                            <p>‘the Goods’ means the goods or the services, the subject matter of the relevant order, contract for sale, hire or loan (excluding any part or parts of them).</p>
+                            <p>‘the Contract’ any contract between the Company and the Buyer for the sale and purchase of the goods incorporating these conditions.</p>
+                        </div>
+
+                        <!-- 2. Risk and title -->
+                        <div>
+                            <h4 class="text-[12px] font-normal mb-1">2. Risk and title</h4>
+                            <p>a) The risk in the products will pass to the customer as soon as they are delivered to the customer.</p>
+                            <p>b) The Edge will remain the sole and absolute owner of the goods until full payment for them has been received. Until such payment has been received the buyer will hold the goods for The Edge as fiduciary bailee and will store them at its premises separately from its own products or those of any other person and in a manner which makes them identifiable as products of The Edge.</p>
+                            <p>c) When payment for the products is overdue or the buyer suffers distress or execution to be levied against its effects, makes an arrangement or composition with creditors or, being a corporate body enters into liquidation or has an administrator or receiver appointed for the whole or any part of its undertaking, or being an individual has a receiving order and bankruptcy made against them then</p>
+                            <p>d) if the buyer remains in possession of the goods, whether or not they have sold them, the Edge shall be entitled to recover the goods from</p>
+                        </div>
+
+                        <!-- 3) Charges -->
+                        <div>
+                            <h4 class="text-[12px] font-normal mb-1">3) Charges</h4>
+                            <p>a) All prices advertised are subject to VAT which is payable in addition by the buyer.</p>
+                            <p>b) The Edge reserves the right to amend prices as and when necessary and in the case of errors on prices the right to rescind any order and credit back to the buyer any payment received.</p>
+                        </div>
+
+                        <!-- 4) Payment -->
+                        <div>
+                            <h4 class="text-[12px] font-normal mb-1">4) Payment</h4>
+                            <p>a) Payment is to be by credit/debit card or cheque, please note that cheques will need to clear before despatch of the goods will be made.</p>
+                            <p>b) Credit accounts are available to buyers who have completed an Account Application form and that application has been satisfactorily accepted by The Edge. The Edge's decision on this will be final. Payment terms for credit accounts are strictly nett monthly and The Edge reserves the right to charge interest at 3% per annum above Barclays Bank PLC Base Rate as amended from time to time and will be charged on a daily basis on overdue accounts calculated from the date payment is due until receipt of the payment by The Edge.</p>
+                        </div>
+
+                        <!-- 5) Delivery -->
+                        <div>
+                            <h4 class="text-[12px] font-normal mb-1">5) Delivery</h4>
+                            <p>a) All published delivery timescales are subject to availability. The Edge will not be liable for any failure to deliver within published timescales this includes loss of interest, revenue or goodwill, or any payments due to a third party in excess of the cost of replacing damaged or defective goods.</p>
+                            <p>b) Delivery costs are in addition to the published prices and will be added at checkout stage.</p>
+                            <p>c) In the event of any damage to the goods upon delivery the buyer must notify The Edge within three working days of delivery and must sign the carriers delivery documentation as damaged, this allows us to claim back from the carrier's insurance policy and then enables us to reimburse the buyer.</p>
+                        </div>
+
+                        <!-- 6) Force Majeure -->
+                        <div>
+                            <h4 class="text-[12px] font-normal mb-1">6) Force Majeure</h4>
+                            <p>Neither party shall have any liability to the other for any failure or delay in performing its obligations due to any circumstances wholly or partly beyond its control, such circumstances shall include but not be limited to fire, flood, power failure, mechanical failure, lack or shortage of materials, strike, lockout or any other industrial action.</p>
+                        </div>
+
+                        <!-- 7) Refunds -->
+                        <div>
+                            <h4 class="text-[12px] font-normal mb-1">7) Refunds</h4>
+                            <p>The Edge will refund any goods which are supplied providing the goods are returned to us in their original condition and packaging in a resaleable state within 14 days of delivery. Delivery charges will not be refunded under any circumstances.</p>
+                        </div>
+
+                        <!-- 8) General -->
+                        <div>
+                            <h4 class="text-[12px] font-normal mb-1">8) General</h4>
+                            <p>a) No modification or amendment of these terms and conditions shall be valid unless agreed in writing and signed by the duly authorised Representative of both parties.</p>
+                            <p>b) All contracts are to be subject to English law.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BRANDS SECTION -->
+            <div class="w-full bg-white border border-[#e2e2e2] mt-8 py-4 px-8 flex justify-center gap-12 items-center shadow-sm">
+                <img src="huge discounts.PNG" alt="Huge Discounts" class="h-24 md:h-28 object-contain mix-blend-multiply" onerror="this.onerror=null; this.src='https://placehold.co/200x80?text=Brand+1'">
+                <img src="ocieanic spa.PNG" alt="Oceanic Spa" class="h-16 md:h-20 object-contain mix-blend-multiply" onerror="this.onerror=null; this.src='https://placehold.co/180x60?text=Brand+2'">
+                <img src="caldera spas.PNG" alt="Caldera Spas" class="h-14 md:h-16 object-contain mix-blend-multiply" onerror="this.onerror=null; this.src='https://placehold.co/160x50?text=Brand+3'">
+                <img src="Island spas.PNG" alt="Island Spas" class="h-16 md:h-20 object-contain mix-blend-multiply" onerror="this.onerror=null; this.src='https://placehold.co/160x50?text=Brand+4'">
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN SECTION -->
+
+    <!-- LAYER 7: FOOTER -->
+    <div class="w-full bg-[#032139] text-white py-[40px] px-4 md:px-0">
+        <div class="max-w-[1000px] mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+                
+                <!-- COLUMN 1: CONTACT US -->
+                <div>
+                    <h3 class="text-[14px] font-bold text-white mb-4 tracking-wide border-b border-gray-600/30 pb-2">CONTACT US</h3>
+                    <div class="text-[12px] text-white space-y-[4px]">
+                        <p class="font-semibold text-white">yourstorename.com</p>
+                        <p class="font-bold text-white mt-[10px] mb-2 leading-relaxed text-[13px]">CALL 24/7: 888 - 201 - 8899</p>
+                        <p class="font-medium text-gray-100">Your Address.</p>
+                        <p class="font-medium text-gray-100">Street</p>
+                        <p class="font-medium text-gray-100">State & Zip Code</p>
+                        <p class="font-medium text-gray-100">City & Country</p>
+                        <p class="font-medium text-white mt-2 tracking-tight">Email: serviceemail@yourstorename.com</p>
+                        
+                        <!-- Social Icons -->
+                        <div class="flex gap-2.5 mt-[18px]">
+                            <a href="#" class="w-7 h-7 bg-[#1da1f2] rounded-full flex justify-center items-center text-white hover:bg-[#1a91da] transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                            <a href="#" class="w-7 h-7 bg-[#3b5998] rounded-full flex justify-center items-center text-white hover:bg-[#2d4373] transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                            <a href="#" class="w-7 h-7 bg-[#0077b5] rounded-full flex justify-center items-center text-white hover:bg-[#005582] transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
+                            <a href="#" class="w-7 h-7 bg-[#db4437] rounded-full flex justify-center items-center text-white hover:bg-[#c23321] transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.545,6.477,2.545,12s4.476,10,10,10c5.522,0,10-4.477,10-10c0-0.678-0.086-1.334-0.239-1.961L12.545,10.239z"/></svg></a>
+                            <a href="#" class="w-7 h-7 bg-[#bd081c] rounded-full flex justify-center items-center text-white hover:bg-[#8f0615] transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.168 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.366 18.602 0 12.017 0z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: INFORMATION -->
+                <div>
+                    <h3 class="text-[14px] font-bold text-white mb-4 tracking-wide border-b border-gray-600/30 pb-2">INFORMATION</h3>
+                    <ul class="text-[12px] font-medium text-white py-2 space-y-[3px]">
+                        <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">ABOUT US</a></li>
+                        <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">CUSTOMER SERVICE</a></li>
+                        <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">PRIVACY POLICY</a></li>
+                        <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">SITE MAP</a></li>
+                        <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">SEARCH TERMS</a></li>
+                        <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">CONTACT US</a></li>
+                        <li><a href="#" class="block py-[4px] hover:text-[#eb1b23] transition">ABOUT US</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: MY ACCOUNT -->
+                <div>
+                    <h3 class="text-[14px] font-bold text-white mb-4 tracking-wide border-b border-gray-600/30 pb-2">MY ACCOUNT</h3>
+                    <ul class="text-[12px] font-medium text-white py-2 space-y-[3px]">
+                        <li><a href="LoginPage.html" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">SIGN IN</a></li>
+                        <li><a href="Shopping Cart.html" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">VIEW CART</a></li>
+                        <li><a href="#" class="block py-[4px] hover:text-[#eb1b23] transition">MY WISHLIST</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 4: NEWSLETTER -->
+                <div>
+                    <h3 class="text-[14px] font-bold text-white mb-4 tracking-wide border-b border-gray-600/30 pb-2">SIGNUP FOR A NEWS LETER</h3>
+                    <div class="mb-[20px]">
+                        <p class="text-[12px] text-white font-medium mb-[8px]">SIGN UP FOR OUR NEWS LETER:</p>
+                        <input type="email" class="w-full bg-[#f4f4f4] text-black px-4 py-[8px] text-[12px] font-semibold border focus:outline-none focus:border-[#eb1b23]" />
+                    </div>
+                    <div>
+                        <p class="text-[11px] text-white font-bold mb-[8px] tracking-tight">PAYMENT SOLUTIONS</p>
+                        <div class="flex gap-2 flex-wrap bg-white/10 p-2 rounded inline-block">
+                            <!-- Actual files if present or fallbacks -->
+                            <img src="maestro.png" alt="maestro"
+                                class="h-[26px] bg-white rounded-sm px-1.5 py-1 object-contain">
+                            <img src="mastercard.png" alt="Mastercard"
+                                class="h-[26px] bg-white rounded-sm px-1.5 py-1 object-contain">
+                            <img src="american express.png" alt="Amex"
+                                class="h-[26px] bg-white rounded-sm px-1.5 py-1 object-contain">
+                            <img src="visa.png" alt="visa"
+                                class="h-[26px] bg-white rounded-sm px-1.5 py-1 object-contain">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-14 pt-6 border-t border-gray-600/30 text-center text-[12px] font-medium text-gray-300">
+                <p>© 2024 Hottubsuperstore.com. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 7 -->
+
+    <!-- jQuery CDN & Interactive Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Interactive Animations
+            // 1. Fade in the main container
+            $('.w-full.max-w-\\[1020px\\]').hide().fadeIn(1000);
+            
+            // 2. Hover animation on Terms sections
+            $('.space-y-6 > div').hover(
+                function() { $(this).css({'transition': 'all 0.3s ease', 'transform': 'translateX(5px)', 'color': '#eb1b23'}); },
+                function() { $(this).css({'transform': 'translateX(0)', 'color': ''}); }
+            );
+
+            // 3. Button hover animation
+            $('button').hover(
+                function() { $(this).css({'transform': 'scale(1.05)', 'transition': 'transform 0.2s'}); },
+                function() { $(this).css('transform', 'scale(1)'); }
+            );
+
+            // Form Validations
+            // 1. Search Bar Validation
+            $('button:contains("SEARCH")').click(function(e) {
+                e.preventDefault();
+                let searchInput = $(this).prev('input');
+                if(searchInput.val().trim() === '') {
+                    alert('Please enter a search term.');
+                    searchInput.focus();
+                } else {
+                    alert('Searching for: ' + searchInput.val());
+                }
+            });
+
+            // 2. Newsletter Signup Validation
+            $('.bg-\\[\\#032139\\] input[type="email"]').on('keypress', function(e) {
+                if(e.which === 13) { // Enter key
+                    e.preventDefault();
+                    let email = $(this).val();
+                    let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                    if(email.trim() === '') {
+                        alert('Please enter your email for the newsletter.');
+                    } else if(!emailRegex.test(email)) {
+                        alert('Please enter a valid email address.');
+                    } else {
+                        alert('Thank you for subscribing to our newsletter!');
+                        $(this).val('');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

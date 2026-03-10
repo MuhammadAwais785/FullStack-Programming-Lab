@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkouts</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .custom-gradient {
+            background-color: #e5eef5;
+            /* Base fallback */
+            background-image: linear-gradient(to bottom, rgba(230, 240, 248, 0.4) 0%, rgba(243, 244, 246, 1) 70%), url('ocean-bg.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+
+        /* Custom Input Styling matching the image */
+        .form-input {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            font-size: 11px;
+            color: #333;
+            outline: none;
+            width: 100%;
+            height: 24px;
+            background-color: #fff;
+        }
+
+        .form-input:focus {
+            border-color: #eb1b23;
+        }
+
+        .form-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-align: right;
+            padding-right: 12px;
+            color: #000;
+        }
+
+        .req-star {
+            color: #eb1b23;
+        }
+
+        .step-heading {
+            color: #eb1b23;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-heading span {
+            color: #333;
+            font-size: 14px;
+            font-weight: normal;
+            margin-left: 8px;
+        }
+
+        /* Order table styling */
+        .order-table th {
+            font-size: 10px;
+            font-weight: 400 !important;
+            color: #000;
+            text-align: left;
+            padding: 4px 0;
+            border-bottom: 1px solid #000;
+        }
+
+        .order-table td {
+            font-size: 11px;
+            font-weight: 400 !important;
+            color: #000;
+            padding: 8px 0;
+            border-bottom: 1px solid #000;
+        }
+
+        .btn-green {
+            background: linear-gradient(to bottom, #7db83d, #5d9720);
+            border: 1px solid #4a7d16;
+            color: white;
+            padding: 5px 15px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-green:hover {
+            background: linear-gradient(to bottom, #8cc54e, #6ba52e);
+        }
+
+        .btn-grey {
+            background: linear-gradient(to bottom, #fcfcfc, #e6e6e6);
+            border: 1px solid #ccc;
+            color: #888;
+            padding: 5px 10px;
+            font-size: 11px;
+            border-radius: 3px;
+        }
+
+        .btn-red {
+            background-color: #eb1b23;
+            color: white;
+            padding: 6px 15px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 2px;
+            border: none;
+        }
+
+        .grid-form {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            align-items: center;
+            gap: 6px 0;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen m-0 p-0 font-sans tracking-tight">
+
+    <!-- LAYER 1: HEADER (Gray Top Bar) -->
+    <div class="w-full bg-[#f8f8f8] border-b border-gray-200">
+        <div class="max-w-[1000px] mx-auto px-4 flex justify-between items-center py-2 text-[11px]">
+            <div class="text-gray-500">
+                Call for Customer support: <span class="text-[#eb1b23] font-semibold">020 38080565</span>
+            </div>
+            <div class="flex gap-6 text-gray-500">
+                <a href="MyAccount.html" class="hover:text-[#eb1b23]">My Account</a>
+                <a href="#" class="hover:text-[#eb1b23]">Wishlist</a>
+                <a href="Shopping Cart.html" class="hover:text-[#eb1b23]">To Checkout</a>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 1 -->
+
+    <!-- LAYER 2: LOGO CART (White Bar) -->
+    <div class="w-full bg-white">
+        <div class="max-w-[1000px] mx-auto px-4 flex justify-between items-center py-[18px]">
+            <!-- Logo -->
+            <div class="leading-none pt-1">
+                <a href="Hottub_main.html" class="text-[28px] font-bold m-0 p-0 flex items-start tracking-tighter no-underline hover:opacity-80 transition-opacity">
+                    <span class="text-[#d81a21]">HOTSPRING</span>
+                    <sup class="text-[10px] mt-[6px] ml-[2px] text-gray-700">®</sup>
+                </a>
+                <span class="text-[12px] font-bold text-[#d81a21] mt-1 inline-block">Portable Spas</span>
+            </div>
+
+            <!-- Cart Dropdown -->
+            <div
+                class="flex items-stretch border border-gray-200 rounded-[2px] overflow-hidden bg-white hover:bg-gray-50 cursor-pointer shadow-sm h-[32px]">
+                <div class="bg-[#d81a21] px-2 flex items-center justify-center">
+                    <svg class="w-[18px] h-[18px] text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="px-3 flex items-center gap-6 min-w-[150px] justify-between">
+                    <span class="text-[11px] text-gray-600 font-semibold tracking-tight">My Cart: 0 items(s)</span>
+                    <svg class="w-2.5 h-2.5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 2 -->
+
+    <!-- LAYER 3: RED NAVIGATION BAR -->
+    <div class="w-full bg-[#eb1b23]">
+        <div class="max-w-[1000px] mx-auto px-4 h-9 flex justify-between items-center">
+            <!-- Navigation Links -->
+            <nav class="flex h-full items-center">
+                <a href="category.html"
+                    class="text-white text-[11px] font-semibold tracking-wider px-4 flex items-center h-full hover:bg-red-700">CATEGORY</a>
+                <span class="text-white text-[10px] opacity-[0.35]">|</span>
+                <a href="#"
+                    class="text-white text-[11px] font-semibold tracking-wider px-4 flex items-center h-full hover:bg-red-700">BRAND</a>
+                <span class="text-white text-[10px] opacity-[0.35]">|</span>
+                <a href="#"
+                    class="text-white text-[11px] font-semibold tracking-wider px-4 flex items-center h-full hover:bg-red-700">INFO</a>
+            </nav>
+
+            <!-- Search Bar -->
+            <div class="flex items-center h-[26px]">
+                <input type="text" placeholder="Search"
+                    class="h-full px-[10px] w-[250px] text-[11px] text-gray-500 border-none outline-none">
+                <button class="bg-[#383838] hover:bg-black text-white px-5 h-full text-[11px] font-bold">SEARCH</button>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 3 -->
+
+    <!-- BACKGROUND WRAPPER WITH OCEAN AND GRADIENT -->
+    <div class="w-full custom-gradient flex-grow flex flex-col items-center py-6 px-4">
+
+        <div class="w-full max-w-[1020px]">
+            <!-- WHITE CONTAINER -->
+            <div class="w-full bg-white pt-6 px-8 pb-10 shadow-sm min-h-[500px]">
+
+                <!-- Breadcrumb -->
+                <div class="text-[10px] mb-5 pl-[2px]">
+                    <a href="Hottub_main.html" class="text-[#2f78c4] hover:underline">Home</a>
+                    <span class="text-black mx-[2px]">»</span>
+                    <a href="#" class="text-black hover:underline">Payments</a>
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-[20px] font-bold text-gray-800 mb-4 tracking-tight pl-[2px]">Secure Checkouts</h2>
+
+                <!-- Gray inner box for form content -->
+                <div class="bg-[#f3f3f3] py-5 px-6 sm:px-8 border-t border-[#e2e2e2]">
+                    <!-- Sub Title -->
+                    <h3 class="text-[13px] font-bold text-gray-800 mb-6">Payment Information</h3>
+
+                    <form id="checkoutForm">
+                        <div class="flex flex-col md:flex-row gap-10">
+
+                            <!-- LEFT COLUMN: STEP 1 -->
+                            <div class="w-full md:w-1/2 pr-0 md:pr-4">
+                                <div class="step-heading">Step 1. <span>Billing Address</span></div>
+
+                                <div class="grid-form">
+                                    <div class="form-label">First Name <span class="req-star">*</span></div>
+                                    <input type="text" class="form-input" id="b_fname" required>
+                                </div>
+                                <div class="grid-form">
+                                    <div class="form-label">Last Name <span class="req-star">*</span></div>
+                                    <input type="text" class="form-input" id="b_lname" required>
+                                </div>
+                                <div class="grid-form">
+                                    <div class="form-label">Email <span class="req-star">*</span></div>
+                                    <input type="email" class="form-input" id="b_email" required>
+                                </div>
+                                <div class="grid-form">
+                                    <div class="form-label">Phone <span class="req-star">*</span></div>
+                                    <input type="text" class="form-input" id="b_phone" required>
+                                </div>
+                                <div class="grid-form">
+                                    <div class="form-label">Address <span class="req-star">*</span></div>
+                                    <input type="text" class="form-input" id="b_address" required>
+                                </div>
+                                <div class="grid-form">
+                                    <div class="form-label">City <span class="req-star">*</span></div>
+                                    <select class="form-input text-gray-400" id="b_city" required>
+                                        <option value="" disabled selected>Select City</option>
+                                    </select>
+                                </div>
+                                <div class="grid-form">
+                                    <div class="form-label">State <span class="req-star">*</span></div>
+                                    <select class="form-input text-gray-400" id="b_state" required>
+                                        <option value="" disabled selected>Select State</option>
+                                    </select>
+                                </div>
+                                <div class="grid-form">
+                                    <div class="form-label">Zip Code <span class="req-star">*</span></div>
+                                    <input type="text" class="form-input" id="b_zip" required>
+                                </div>
+                                <div class="grid-form">
+                                    <div class="form-label">Country <span class="req-star">*</span></div>
+                                    <select class="form-input text-gray-400" id="b_country" required>
+                                        <option value="" disabled selected>United States</option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="UK">United Kingdom</option>
+                                    </select>
+                                </div>
+
+                                <!-- Ship to different address -->
+                                <div class="mt-4 mb-4 flex items-center gap-2 pl-[80px]">
+                                    <input type="checkbox" id="shipDifferent" class="w-3 h-3">
+                                    <label for="shipDifferent" class="text-[11px] text-[#2f78c4]">Ship to a different
+                                        address</label>
+                                </div>
+
+                                <!-- Shipping Address Form (always visible) -->
+                                <div id="shippingForm" class="mt-6 pt-4 border-t border-gray-300">
+                                    <div class="grid-form">
+                                        <div class="form-label">First Name <span class="req-star">*</span></div>
+                                        <input type="text" class="form-input shipping-field">
+                                    </div>
+                                    <div class="grid-form">
+                                        <div class="form-label">Last Name <span class="req-star">*</span></div>
+                                        <input type="text" class="form-input shipping-field">
+                                    </div>
+                                    <div class="grid-form">
+                                        <div class="form-label">Email <span class="req-star">*</span></div>
+                                        <input type="email" class="form-input shipping-field">
+                                    </div>
+                                    <div class="grid-form">
+                                        <div class="form-label">Phone <span class="req-star">*</span></div>
+                                        <input type="text" class="form-input shipping-field">
+                                    </div>
+                                    <div class="grid-form">
+                                        <div class="form-label">Address <span class="req-star">*</span></div>
+                                        <input type="text" class="form-input shipping-field">
+                                    </div>
+                                    <div class="grid-form">
+                                        <div class="form-label">City <span class="req-star">*</span></div>
+                                        <select class="form-input text-gray-400 shipping-field" id="s_city">
+                                            <option value="" disabled selected>Select City</option>
+                                        </select>
+                                    </div>
+                                    <div class="grid-form">
+                                        <div class="form-label">State <span class="req-star">*</span></div>
+                                        <select class="form-input text-gray-400 shipping-field" id="s_state">
+                                            <option value="" disabled selected>Select State</option>
+                                        </select>
+                                    </div>
+                                    <div class="grid-form">
+                                        <div class="form-label">Zip Code <span class="req-star">*</span></div>
+                                        <input type="text" class="form-input shipping-field">
+                                    </div>
+                                    <div class="grid-form">
+                                        <div class="form-label">Country <span class="req-star">*</span></div>
+                                        <select class="form-input text-gray-400 shipping-field" id="s_country">
+                                            <option value="" disabled selected>United States</option>
+                                            <option value="US">United States</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="UK">United Kingdom</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- RIGHT COLUMN: STEP 2 & 3 -->
+                            <div class="w-full md:w-1/2 pl-0 md:pl-4">
+
+                                <!-- STEP 2 -->
+                                <div class="step-heading">Step 2. <span>Card Details</span></div>
+
+                                <div class="grid-form" style="grid-template-columns: 85px 1fr;">
+                                    <div class="form-label">Card Type <span class="req-star">*</span></div>
+                                    <select class="form-input text-gray-400" required>
+                                        <option value="" disabled selected>Master Card</option>
+                                        <option value="visa">Visa</option>
+                                        <option value="mastercard">MasterCard</option>
+                                        <option value="amex">American Express</option>
+                                    </select>
+                                </div>
+                                <div class="grid-form" style="grid-template-columns: 85px 1fr;">
+                                    <div class="form-label">Card Number <span class="req-star">*</span></div>
+                                    <input type="text" class="form-input" placeholder="1234 5678 0123 4567" required>
+                                </div>
+                                <div class="grid-form" style="grid-template-columns: 85px 1fr;">
+                                    <div class="form-label">Expiration <span class="req-star">*</span></div>
+                                    <div class="flex gap-2">
+                                        <select class="form-input w-16 text-gray-400" required>
+                                            <option value="" disabled selected>01</option>
+                                            <option value="01">01</option>
+                                            <!-- Additional months -->
+                                            <option value="02">02</option>
+                                        </select>
+                                        <select class="form-input flex-1 text-gray-400" required>
+                                            <option value="" disabled selected>December</option>
+                                            <option>January</option>
+                                            <option>February</option>
+                                        </select>
+                                        <select class="form-input w-20 text-gray-400" required>
+                                            <option value="" disabled selected>2015</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="grid-form" style="grid-template-columns: 85px 1fr;">
+                                    <div class="form-label">Secure Code <span class="req-star">*</span></div>
+                                    <input type="text" class="form-input" required>
+                                </div>
+
+                                <div class="mt-4 mb-8 text-[10px] text-black pl-[85px] leading-tight">
+                                    <p class="mb-2">Note: Please ensure the billing address you enter<br>matches your
+                                        credit card billing address.</p>
+                                    <div class="flex items-center gap-1.5 mt-2">
+                                        <input type="checkbox" id="acceptTerms" class="w-2.5 h-2.5" required>
+                                        <label for="acceptTerms" class="text-[#2f78c4] cursor-pointer">I Accept terms and
+                                            Conditions</label>
+                                    </div>
+                                </div>
+
+                                <!-- STEP 3 -->
+                                <div class="step-heading mt-10">Step 3. <span>Review Your Order</span></div>
+
+                                <table class="w-full order-table mb-4">
+                                    <thead>
+                                        <tr>
+                                            <th>Item name</th>
+                                            <th>price</th>
+                                            <th>Quantity</th>
+                                            <th class="text-right">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>X9 SCYWX SERIES 119</td>
+                                            <td>$ 890</td>
+                                            <td>1000</td>
+                                            <td class="text-right">12000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="flex justify-between items-center border-b border-[#000] pb-4 mb-4">
+                                    <div class="text-[12px] text-black">Total with shipping:</div>
+                                    <div class="text-[12px] text-black">$ 890.00</div>
+                                </div>
+
+                                <div class="flex justify-end mt-2">
+                                    <div class="flex items-stretch border border-[#b2b2b2] rounded overflow-hidden">
+                                        <div class="bg-white px-2 py-1 flex items-center border-r border-[#b2b2b2]">
+                                            <i class="fa-solid fa-lock text-[#a5a5a5] text-[12px]"></i>
+                                        </div>
+                                        <button type="button" class="btn-green rounded-none px-4" id="placeOrderBtn">
+                                            Place Your Order <i class="fa-solid fa-caret-right ml-2 text-white/70"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Footer actions for the form container -->
+                        <div class="flex justify-end items-center mt-20 pt-4 border-t border-[#000] gap-4">
+                            <div class="text-[11px] text-black">
+                                Cart summary <span class="font-normal">(2 items)</span>
+                                <div class="text-black text-[14px] text-right mt-1">Total: $21.00</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mt-4 gap-2">
+                            <button type="button" class="btn-grey text-[#2f78c4]">Continue shopping</button>
+                            <button type="submit" class="btn-red shrink-0" id="proceedCheckoutBtn">Proceed to
+                                checkout</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BRANDS SECTION -->
+            <div
+                class="w-full bg-white border border-[#e2e2e2] mt-8 py-4 px-8 flex justify-center gap-12 items-center shadow-sm">
+                <img src="huge discounts.PNG" alt="Huge Discounts" class="h-24 md:h-28 object-contain mix-blend-multiply"
+                    onerror="this.onerror=null; this.src='https://placehold.co/200x80?text=Brand+1'">
+                <img src="ocieanic spa.PNG" alt="Oceanic Spa" class="h-16 md:h-20 object-contain mix-blend-multiply"
+                    onerror="this.onerror=null; this.src='https://placehold.co/180x60?text=Brand+2'">
+                <img src="caldera spas.PNG" alt="Caldera Spas" class="h-14 md:h-16 object-contain mix-blend-multiply"
+                    onerror="this.onerror=null; this.src='https://placehold.co/160x50?text=Brand+3'">
+                <img src="Island spas.PNG" alt="Island Spas" class="h-16 md:h-20 object-contain mix-blend-multiply"
+                    onerror="this.onerror=null; this.src='https://placehold.co/160x50?text=Brand+4'">
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN SECTION -->
+
+    <!-- LAYER 7: FOOTER -->
+    <div class="w-full bg-[#032139] text-white py-[40px] px-4 md:px-0">
+        <div class="max-w-[1000px] mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+
+                <!-- COLUMN 1: CONTACT US -->
+                <div>
+                    <h3 class="text-[14px] font-bold text-white mb-4 tracking-wide border-b border-gray-600/30 pb-2">
+                        CONTACT US</h3>
+                    <div class="text-[12px] text-white space-y-[4px]">
+                        <p class="font-semibold text-white">yourstorename.com</p>
+                        <p class="font-bold text-white mt-[10px] mb-2 leading-relaxed text-[13px]">CALL 24/7: 888 - 201
+                            - 8899</p>
+                        <p class="font-medium text-gray-100">Your Address.</p>
+                        <p class="font-medium text-gray-100">Street</p>
+                        <p class="font-medium text-gray-100">State & Zip Code</p>
+                        <p class="font-medium text-gray-100">City & Country</p>
+                        <p class="font-medium text-white mt-2 tracking-tight">Email: serviceemail@yourstorename.com</p>
+
+                        <!-- Social Icons using FontAwesome -->
+                        <div class="flex gap-2.5 mt-[18px]">
+                            <a href="#"
+                                class="w-7 h-7 bg-[#1da1f2] rounded-full flex justify-center items-center text-white hover:bg-[#1a91da] transition"><i
+                                    class="fa-brands fa-twitter text-[13px]"></i></a>
+                            <a href="#"
+                                class="w-7 h-7 bg-[#3b5998] rounded-full flex justify-center items-center text-white hover:bg-[#2d4373] transition"><i
+                                    class="fa-brands fa-facebook-f text-[13px]"></i></a>
+                            <a href="#"
+                                class="w-7 h-7 bg-[#0077b5] rounded-full flex justify-center items-center text-white hover:bg-[#005582] transition"><i
+                                    class="fa-brands fa-linkedin-in text-[13px]"></i></a>
+                            <a href="#"
+                                class="w-7 h-7 bg-[#db4437] rounded-full flex justify-center items-center text-white hover:bg-[#c23321] transition"><i
+                                    class="fa-brands fa-google-plus-g text-[13px]"></i></a>
+                            <a href="#"
+                                class="w-7 h-7 bg-[#bd081c] rounded-full flex justify-center items-center text-white hover:bg-[#8f0615] transition"><i
+                                    class="fa-brands fa-pinterest-p text-[13px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: INFORMATION -->
+                <div>
+                    <h3 class="text-[14px] font-bold text-white mb-4 tracking-wide border-b border-gray-600/30 pb-2">
+                        INFORMATION</h3>
+                    <ul class="text-[12px] font-medium text-white py-2 space-y-[3px]">
+                        <li><a href="#"
+                                class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">ABOUT
+                                US</a></li>
+                        <li><a href="#"
+                                class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">CUSTOMER
+                                SERVICE</a></li>
+                        <li><a href="#"
+                                class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">PRIVACY
+                                POLICY</a></li>
+                        <li><a href="#"
+                                class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">SITE
+                                MAP</a></li>
+                        <li><a href="#"
+                                class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">SEARCH
+                                TERMS</a></li>
+                        <li><a href="#"
+                                class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">CONTACT
+                                US</a></li>
+                        <li><a href="#" class="block py-[4px] hover:text-[#eb1b23] transition">ABOUT US</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: MY ACCOUNT -->
+                <div>
+                    <h3 class="text-[14px] font-bold text-white mb-4 tracking-wide border-b border-gray-600/30 pb-2">MY
+                        ACCOUNT</h3>
+                    <ul class="text-[12px] font-medium text-white py-2 space-y-[3px]">
+                        <li><a href="LoginPage.html"
+                                class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">SIGN
+                                IN</a></li>
+                        <li><a href="Shopping Cart.html"
+                                class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">VIEW
+                                CART</a></li>
+                        <li><a href="#" class="block py-[4px] hover:text-[#eb1b23] transition">MY WISHLIST</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 4: NEWSLETTER -->
+                <div>
+                    <h3 class="text-[14px] font-bold text-white mb-4 tracking-wide border-b border-gray-600/30 pb-2">
+                        SIGNUP FOR A NEWS LETER</h3>
+                    <div class="mb-[20px]">
+                        <p class="text-[12px] text-white font-medium mb-[8px]">SIGN UP FOR OUR NEWS LETER:</p>
+                        <input type="email"
+                            class="w-full bg-[#f4f4f4] text-black px-4 py-[8px] text-[12px] font-semibold border focus:outline-none focus:border-[#eb1b23]" />
+                    </div>
+                    <div>
+                        <p class="text-[11px] text-white font-bold mb-[8px] tracking-tight">PAYMENT SOLUTIONS</p>
+                        <div class="flex gap-2 flex-wrap bg-white/10 p-2 rounded inline-block">
+                            <!-- Actual files if present or fallbacks -->
+                            <img src="maestro.png" alt="maestro"
+                                class="h-[26px] bg-white rounded-sm px-1.5 py-1 object-contain">
+                            <img src="mastercard.png" alt="Mastercard"
+                                class="h-[26px] bg-white rounded-sm px-1.5 py-1 object-contain">
+                            <img src="american express.png" alt="Amex"
+                                class="h-[26px] bg-white rounded-sm px-1.5 py-1 object-contain">
+                            <img src="visa.png" alt="visa"
+                                class="h-[26px] bg-white rounded-sm px-1.5 py-1 object-contain">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-14 pt-6 border-t border-gray-600/30 text-center text-[12px] font-medium text-gray-300">
+                <p>© 2024 Hottubsuperstore.com. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYER 7 -->
+
+    <!-- jQuery CDN & Interactive Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Data for City/State functional dropdowns
+            const locationData = {
+                "US": {
+                    "New York": ["New York City", "Buffalo", "Rochester"],
+                    "California": ["Los Angeles", "San Francisco", "San Diego"],
+                    "Texas": ["Houston", "Austin", "Dallas"]
+                },
+                "CA": {
+                    "Ontario": ["Toronto", "Ottawa", "Mississauga"],
+                    "British Columbia": ["Vancouver", "Victoria", "Surrey"],
+                    "Quebec": ["Montreal", "Quebec City", "Laval"]
+                },
+                "UK": {
+                    "England": ["London", "Manchester", "Birmingham"],
+                    "Scotland": ["Edinburgh", "Glasgow", "Aberdeen"],
+                    "Wales": ["Cardiff", "Swansea", "Newport"]
+                }
+            };
+
+            function populateStates(countrySelectId, stateSelectId) {
+                const country = $('#' + countrySelectId).val();
+                const stateSelect = $('#' + stateSelectId);
+                stateSelect.empty().append('<option value="" disabled selected>Select State</option>');
+
+                if (country && locationData[country]) {
+                    Object.keys(locationData[country]).forEach(state => {
+                        stateSelect.append(`<option value="${state}">${state}</option>`);
+                    });
+                }
+
+                // Also reset city
+                $('#' + countrySelectId.replace('country', 'city')).empty().append('<option value="" disabled selected>Select City</option>');
+            }
+
+            function populateCities(countrySelectId, stateSelectId, citySelectId) {
+                const country = $('#' + countrySelectId).val();
+                const state = $('#' + stateSelectId).val();
+                const citySelect = $('#' + citySelectId);
+
+                citySelect.empty().append('<option value="" disabled selected>Select City</option>');
+
+                if (country && state && locationData[country][state]) {
+                    locationData[country][state].forEach(city => {
+                        citySelect.append(`<option value="${city}">${city}</option>`);
+                    });
+                }
+            }
+
+            // Billing address dropdown handlers
+            $('#b_country').change(function () { populateStates('b_country', 'b_state'); });
+            $('#b_state').change(function () { populateCities('b_country', 'b_state', 'b_city'); });
+
+            // Shipping address dropdown handlers
+            $('#s_country').change(function () { populateStates('s_country', 's_state'); });
+            $('#s_state').change(function () { populateCities('s_country', 's_state', 's_city'); });
+
+            // Initial manual triggers if default country present
+            $('#b_country').trigger('change');
+            $('#s_country').trigger('change');
+
+            // Interactive Animations
+            // 1. Fade in the main container
+            $('.w-full.max-w-\\[1020px\\]').hide().fadeIn(1000);
+
+            // 2. Toggle Shipping Form Fields Required Status
+            $('#shipDifferent').change(function () {
+                if ($(this).is(':checked')) {
+                    $('.shipping-field').attr('required', true);
+                    $('#shippingForm .form-label').append(' <span class="req-star">*</span>');
+                } else {
+                    $('.shipping-field').attr('required', false);
+                    $('#shippingForm .req-star').remove();
+                }
+            });
+
+            // 3. Form Validations and Submission
+            $('#checkoutForm').submit(function (e) {
+                e.preventDefault();
+
+                if (!$('#acceptTerms').is(':checked')) {
+                    alert('Please accept the terms and conditions to proceed.');
+                    return;
+                }
+
+                // Simple validation animation
+                $('#proceedCheckoutBtn').text('Processing...').css('opacity', '0.7');
+
+                setTimeout(() => {
+                    alert('Order validated successfully! Proceeding to next step.');
+                    $('#proceedCheckoutBtn').text('Proceed to checkout').css('opacity', '1');
+                }, 1000);
+            });
+
+            // Place Order Button Specific behavior
+            $('#placeOrderBtn').click(function () {
+                if ($('#checkoutForm')[0].checkValidity()) {
+                    if (!$('#acceptTerms').is(':checked')) {
+                        alert('Please accept the terms and conditions to proceed.');
+                        return;
+                    }
+                    alert('Order Placed Successfully!');
+                } else {
+                    $('#checkoutForm')[0].reportValidity();
+                }
+            });
+
+            // 4. Input focus animations
+            $('.form-input').focus(function () {
+                $(this).parent('.grid-form').find('.form-label').css('color', '#eb1b23');
+            }).blur(function () {
+                $(this).parent('.grid-form').find('.form-label').css('color', '#000');
+            });
+
+            // Button hover animation
+            $('button:contains("SEARCH"), #proceedCheckoutBtn').hover(
+                function () { $(this).css({ 'transform': 'scale(1.02)', 'transition': 'transform 0.2s' }); },
+                function () { $(this).css('transform', 'scale(1)'); }
+            );
+        });
+    </script>
+</body>
+
+</html>
