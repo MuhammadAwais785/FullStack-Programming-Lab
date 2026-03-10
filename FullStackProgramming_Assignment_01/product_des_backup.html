@@ -8,11 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .custom-gradient {
-            background-color: #d1e2e9;
-            background-image: url('bg.png'), url('bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-color: #f1f5f9;
         }
         /* Style for standard text to ensure it's dark black */
         .norm-text {
@@ -21,7 +17,7 @@
     </style>
 </head>
 
-<body class="flex flex-col min-h-screen m-0 p-0 font-sans tracking-tight text-black custom-gradient">
+<body class="flex flex-col min-h-screen m-0 p-0 font-sans tracking-tight text-black bg-[#eef1f5]">
 
     <!-- LAYER 1: HEADER (Gray Top Bar) -->
     <div class="w-full bg-[#f8f8f8] border-b border-gray-200">
@@ -44,7 +40,7 @@
             <!-- Logo -->
             <div class="leading-none pt-1">
                 <a href="Hottub_main.html" class="text-[28px] font-bold m-0 p-0 flex items-start tracking-tighter no-underline hover:opacity-80 transition-opacity text-black">
-                    <span class="text-[#d81a21]">HOTSPRING</span>
+                    <span class="text-[#111]">Hot</span><span class="text-[#2f78c4]">Spring</span>
                     <sup class="text-[10px] mt-[6px] ml-[2px] text-gray-700">®</sup>
                 </a>
                 <span class="text-[12px] font-bold text-[#d81a21] mt-1 inline-block">Portable Spas</span>
@@ -107,15 +103,15 @@
                         <div class="flex flex-col md:flex-row gap-6">
                             <!-- Image Gallery -->
                             <div class="w-[300px] flex flex-col items-center">
-                                <div class="w-full mb-2 bg-white flex items-center justify-center border border-gray-200 p-2">
-                                    <img id="main-product-image" src="refrigerator.jpg" alt="Refrigerator" class="w-full h-auto object-contain max-h-[300px]" onerror="this.src='https://placehold.co/300x300?text=Image'">
+                                <div class="w-full mb-2">
+                                    <img src="hottub-showcase.jpg" alt="Hot Tub" class="w-full h-auto object-cover border border-gray-200 p-1" onerror="this.src='https://placehold.co/300x300?text=Hot+Tub'">
                                 </div>
                                 <p class="text-[9px] text-black mb-2 italic">Roll over image to zoom in</p>
                                 <div class="flex gap-2">
-                                    <img src="refrigerator.jpg" alt="Thumb" class="thumb-img w-12 h-12 bg-white border border-[#2f78c4] p-0.5 object-contain cursor-pointer" onclick="document.getElementById('main-product-image').src=this.src" onerror="this.src='https://placehold.co/48x48?text=1'">
-                                    <img src="carbaret 1.jpg" alt="Thumb" class="thumb-img w-12 h-12 bg-white border border-gray-200 p-0.5 object-cover cursor-pointer hover:border-[#2f78c4]" onclick="document.getElementById('main-product-image').src=this.src" onerror="this.src='https://placehold.co/48x48?text=2'">
-                                    <img src="carbaret 2.jpg" alt="Thumb" class="thumb-img w-12 h-12 bg-white border border-gray-200 p-0.5 object-cover cursor-pointer hover:border-[#2f78c4]" onclick="document.getElementById('main-product-image').src=this.src" onerror="this.src='https://placehold.co/48x48?text=3'">
-                                    <img src="hottub-showcase.jpg" alt="Thumb" class="thumb-img w-12 h-12 bg-white border border-gray-200 p-0.5 object-cover cursor-pointer hover:border-[#2f78c4]" onclick="document.getElementById('main-product-image').src=this.src" onerror="this.src='https://placehold.co/48x48?text=4'">
+                                    <img src="hottub-showcase.jpg" alt="Thumb" class="w-12 h-12 border border-[#2f78c4] p-0.5 object-cover cursor-pointer" onerror="this.src='https://placehold.co/48x48?text=1'">
+                                    <img src="carbaret 1.jpg" alt="Thumb" class="w-12 h-12 border border-gray-200 p-0.5 object-cover cursor-pointer hover:border-[#2f78c4]" onerror="this.src='https://placehold.co/48x48?text=2'">
+                                    <img src="carbaret 2.jpg" alt="Thumb" class="w-12 h-12 border border-gray-200 p-0.5 object-cover cursor-pointer hover:border-[#2f78c4]" onerror="this.src='https://placehold.co/48x48?text=3'">
+                                    <img src="hottub-showcase.jpg" alt="Thumb" class="w-12 h-12 border border-gray-200 p-0.5 object-cover cursor-pointer hover:border-[#2f78c4]" onerror="this.src='https://placehold.co/48x48?text=4'">
                                 </div>
                                 <div class="mt-2 text-[#2f78c4] text-[11px] font-bold cursor-pointer hover:underline flex items-center justify-center gap-1">
                                     <span>+</span> Larger View
@@ -466,22 +462,5 @@
     </div>
     <!-- END LAYER 7 -->
 
-    <!-- Interactive Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const thumbs = document.querySelectorAll('.thumb-img');
-            thumbs.forEach(thumb => {
-                thumb.addEventListener('mouseenter', function() {
-                    const currentActive = document.querySelector('.thumb-img.border-\\[\\#2f78c4\\]');
-                    if(currentActive) {
-                        currentActive.classList.remove('border-[#2f78c4]');
-                        currentActive.classList.add('border-gray-200');
-                    }
-                    this.classList.remove('border-gray-200');
-                    this.classList.add('border-[#2f78c4]');
-                });
-            });
-        });
-    </script>
 </body>
 </html>

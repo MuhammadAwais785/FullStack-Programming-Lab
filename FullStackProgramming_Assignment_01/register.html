@@ -7,31 +7,14 @@
     <title>Create New Account</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="styles.css">
     <style>
-        .custom-gradient {
-            background-color: #e5eef5; /* Base fallback */
-            background-image: linear-gradient(to bottom, rgba(230, 240, 248, 0.4) 0%, rgba(243, 244, 246, 1) 70%), url('ocean-bg.jpg');
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
-        }
-
-        /* Custom Input Styling */
+        /* Component specific overrides if any */
         input[type="text"],
         input[type="email"],
         input[type="password"] {
-            border: 1px solid #ccc;
-            padding: 4px 8px;
-            font-size: 11px;
-            color: #333;
-            outline: none;
             width: 280px;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="password"]:focus {
-            border-color: #eb1b23;
         }
     </style>
 </head>
@@ -46,7 +29,7 @@
             </div>
             <div class="flex gap-6 text-gray-500">
                 <a href="MyAccount.html" class="hover:text-[#eb1b23]">My Account</a>
-                <a href="#" class="hover:text-[#eb1b23]">Wishlist</a>
+                <a href="MyAccount.html" class="hover:text-[#eb1b23]">Wishlist</a>
                 <a href="Shopping Cart.html" class="hover:text-[#eb1b23]">To Checkout</a>
             </div>
         </div>
@@ -90,7 +73,7 @@
             <nav class="flex h-full items-center">
                 <a href="category.html" class="text-white text-[11px] font-semibold tracking-wider px-4 flex items-center h-full hover:bg-red-700">CATEGORY</a>
                 <span class="text-white text-[10px] opacity-[0.35]">|</span>
-                <a href="#" class="text-white text-[11px] font-semibold tracking-wider px-4 flex items-center h-full hover:bg-red-700">BRAND</a>
+                <a href="category.html" class="text-white text-[11px] font-semibold tracking-wider px-4 flex items-center h-full hover:bg-red-700">BRAND</a>
                 <span class="text-white text-[10px] opacity-[0.35]">|</span>
                 <a href="#" class="text-white text-[11px] font-semibold tracking-wider px-4 flex items-center h-full hover:bg-red-700">INFO</a>
             </nav>
@@ -104,7 +87,7 @@
     </div>
     <!-- END LAYER 3 -->
 
-    <!-- BACKGROUND WRAPPER WITH OCEAN AND GRADIENT -->
+    <!-- MAIN SECTION -->
     <div class="w-full custom-gradient flex-grow flex flex-col items-center py-6 px-4">
         
         <!-- Form Container Wrapper to contain both form and brands exactly like the image -->
@@ -129,7 +112,7 @@
                     
                     <div class="mb-5">
                         <p class="text-[11px] text-black mb-3 tracking-normal">To create a new account, please fill in the required information below. Passwords are case sensitive and must be 6 to 20 characters long.</p>
-                        <p class="text-[11px] text-black tracking-normal">*Required Fields</p>
+                        <p class="text-[11px] text-black tracking-normal"><span class="text-[#eb1b23]">*</span>Required Fields</p>
                     </div>
 
                     <!-- Form -->
@@ -137,31 +120,31 @@
                         <div class="flex flex-col gap-[12px]">
                             <!-- Email Address -->
                             <div class="flex items-center">
-                                <label class="w-[130px] text-[11px] font-normal text-black text-right pr-4">Email Address *</label>
+                                <label class="w-[130px] text-[11px] font-normal text-black text-right pr-4">Email Address <span class="text-[#eb1b23]">*</span></label>
                                 <input type="email" required>
                             </div>
 
                             <!-- Password -->
                             <div class="flex items-center">
-                                <label class="w-[130px] text-[11px] font-normal text-black text-right pr-4">Password *</label>
+                                <label class="w-[130px] text-[11px] font-normal text-black text-right pr-4">Password <span class="text-[#eb1b23]">*</span></label>
                                 <input type="password" required>
                             </div>
 
                             <!-- Re-enter Password -->
                             <div class="flex items-center">
-                                <label class="w-[130px] text-[11px] font-normal text-black text-right pr-4">Re-enter Password *</label>
+                                <label class="w-[130px] text-[11px] font-normal text-black text-right pr-4">Re-enter Password <span class="text-[#eb1b23]">*</span></label>
                                 <input type="password" required>
                             </div>
 
                             <!-- First Name -->
                             <div class="flex items-center">
-                                <label class="w-[130px] text-[11px] font-normal text-black text-right pr-4">First Name *</label>
+                                <label class="w-[130px] text-[11px] font-normal text-black text-right pr-4">First Name <span class="text-[#eb1b23]">*</span></label>
                                 <input type="text" required>
                             </div>
 
                             <!-- Last Name -->
                             <div class="flex items-center">
-                                <label class="w-[130px] text-[11px] font-normal text-black text-right pr-4">Last Name *</label>
+                                <label class="w-[130px] text-[11px] font-normal text-black text-right pr-4">Last Name <span class="text-[#eb1b23]">*</span></label>
                                 <input type="text" required>
                             </div>
                         </div>
@@ -224,13 +207,13 @@
                 <div>
                     <h3 class="text-[14px] font-bold text-white mb-4 tracking-wide border-b border-gray-600/30 pb-2">INFORMATION</h3>
                     <ul class="text-[12px] font-medium text-white py-2 space-y-[3px]">
-                        <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">ABOUT US</a></li>
+                        <li><a href="AboutUs.html" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">ABOUT US</a></li>
                         <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">CUSTOMER SERVICE</a></li>
                         <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">PRIVACY POLICY</a></li>
                         <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">SITE MAP</a></li>
                         <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">SEARCH TERMS</a></li>
-                        <li><a href="#" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">CONTACT US</a></li>
-                        <li><a href="#" class="block py-[4px] hover:text-[#eb1b23] transition">ABOUT US</a></li>
+                        <li><a href="Cotact Us.html" class="block py-[4px] border-b border-gray-600/30 hover:text-[#eb1b23] transition">CONTACT US</a></li>
+                        <li><a href="AboutUs.html" class="block py-[4px] hover:text-[#eb1b23] transition">ABOUT US</a></li>
                     </ul>
                 </div>
 
