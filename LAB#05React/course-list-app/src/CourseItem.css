@@ -1,0 +1,25 @@
+.course-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+}
+
+.course-item.online {
+  border-left: 4px solid #4caf50;
+}
+
+.course-item.offline {
+  border-left: 4px solid #2196f3;
+}
+
+.course-name {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.course-item p {
+  margin: 4px 0;
+  font-size: 14px;
+}
