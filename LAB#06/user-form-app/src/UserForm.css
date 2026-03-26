@@ -1,0 +1,35 @@
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#0b63ff;
+  --accent-2:#084bdb;
+  --success:#10b981;
+  --danger:#ef4444;
+}
+.card{background:var(--card);padding:32px;border-radius:14px;box-shadow:0 16px 40px rgba(14,30,60,0.08);border:1px solid rgba(15,23,42,0.04);max-width:560px;margin:20px auto}
+.userform{width:100%}
+.userform .form{display:flex;flex-direction:column;gap:14px}
+.userform label{font-size:13px;color:var(--muted);font-weight:600}
+.userform input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #e6e9ef;background:#fbfdff;font-size:15px;color:#0f172a;transition:box-shadow .12s ease,border-color .12s ease}
+.userform input::placeholder{color:#9aa4b2}
+.userform input:focus{outline:none;border-color:var(--accent);box-shadow:0 10px 30px rgba(11,99,255,0.08)}
+
+/* Action row */
+.userform .actions{display:flex;gap:12px;justify-content:flex-end;margin-top:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:10px;border:none;font-weight:600;cursor:pointer;transition:transform .08s ease,box-shadow .12s ease}
+.btn.primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 10px 30px rgba(11,99,255,0.18)}
+.btn.secondary{background:#fff;border:1px solid #e6e9ef;color:#0f172a}
+.btn:hover{transform:translateY(-2px)}
+
+/* Result */
+.result{margin-top:18px;background:#f8fafc;padding:16px;border-radius:10px;border:1px solid #edf2f7;color:#0f172a}
+.result h3{margin:0 0 8px 0;font-size:16px}
+.result p{margin:6px 0;font-size:14px}
+
+/* Small screens */
+@media (max-width:640px){
+  .card{margin:12px; padding:20px}
+  .userform .actions{flex-direction:column}
+  .userform .actions .btn{width:100%}
+}
