@@ -35,6 +35,9 @@ function MyAccountPage() {
 						Hello User name! From your account you can view your recent orders, manage your shipping and billing addresses,
 						and edit your password and account details.
 					</p>
+					<Link to="/edit-profile" className="mt-3 inline-block bg-[#ef101f] px-4 py-2 text-[10px] font-semibold uppercase text-white no-underline">
+						Edit Profile
+					</Link>
 
 					<div className="mt-8">
 						<h3 className="text-[18px] font-semibold text-[#2d4151]">Recent Orders</h3>
@@ -53,9 +56,9 @@ function MyAccountPage() {
 									<div>{order.status}</div>
 									<div>{order.total}</div>
 									<div>
-										<button type="button" className="h-8 bg-[#ef101f] px-3 text-[10px] font-semibold uppercase text-white">
+										<Link to="/order-details" className="flex h-8 items-center justify-center bg-[#ef101f] px-3 text-[10px] font-semibold uppercase text-white no-underline">
 											View Orders
-										</button>
+										</Link>
 									</div>
 								</div>
 							))}

@@ -1,10 +1,22 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Navbar({ searchQuery = "", onSearchChange, onSearchSubmit, cartCount = 0 }) {
+	const navigate = useNavigate();
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		onSearchSubmit?.();
+	};
+
+	const handleCartChange = (e) => {
+		const destination = e.target.value;
+		if (destination === "view-cart") {
+			navigate("/shopping-cart");
+		}
+		if (destination === "checkout") {
+			navigate("/payment-form");
+		}
+		e.target.value = "my-cart";
 	};
 
 	return (
@@ -20,16 +32,16 @@ function Navbar({ searchQuery = "", onSearchChange, onSearchSubmit, cartCount = 
 							className="border-l border-[#d7d7d7] px-3.5 text-[12px] leading-6 text-[#525252] no-underline max-sm:px-2">
 							My Account
 						</NavLink>
-						<a
-							href="#"
+						<NavLink
+							to="/wishlist"
 							className="border-l border-[#d7d7d7] px-3.5 text-[12px] leading-6 text-[#525252] no-underline max-sm:px-2">
 							Wishlist
-						</a>
-						<a
-							href="#"
+						</NavLink>
+						<NavLink
+							to="/payment-form"
 							className="border-x border-[#d7d7d7] px-3.5 text-[12px] leading-6 text-[#525252] no-underline max-sm:px-2">
 							To Checkout
-						</a>
+						</NavLink>
 					</nav>
 				</div>
 			</div>
@@ -56,9 +68,9 @@ function Navbar({ searchQuery = "", onSearchChange, onSearchSubmit, cartCount = 
 						<a href="/hottub-main#new-products" className="text-[12px] uppercase text-[#444444] no-underline">
 							Products
 						</a>
-						<a href="#" className="text-[12px] uppercase text-[#444444] no-underline">
+						<NavLink to="/special-offers" className="text-[12px] uppercase text-[#444444] no-underline">
 							Special Offers
-						</a>
+						</NavLink>
 						<NavLink to="/contact-us" className="text-[12px] uppercase text-[#444444] no-underline">
 							Customer Service
 						</NavLink>
@@ -74,6 +86,7 @@ function Navbar({ searchQuery = "", onSearchChange, onSearchSubmit, cartCount = 
 						<select
 							aria-label="My Cart Dropdown"
 							defaultValue="my-cart"
+							onChange={handleCartChange}
 							className="w-full cursor-pointer bg-transparent text-[12px] text-[#555555] outline-none"
 						>
 							<option value="my-cart">My Cart | {cartCount} Items (s)</option>

@@ -11,6 +11,14 @@ import LoginPage from "./pages/LoginPage";
 import MyAccountPage from "./pages/MyAccount";
 import ProductDesPage from "./pages/ProductDes";
 import RegisterPage from "./pages/Register";
+import TermsAndConditionsPage from "./pages/TermsAndConditions";
+import ShoppingCartPage from "./pages/ShoppingCart";
+import PaymentFormPage from "./pages/PaymentForm";
+import OrderSummaryPage from "./pages/OrderSummary";
+import OrderDetailsPage from "./pages/OederDetail";
+import EditProfilePage from "./pages/EditPage";
+import SpecialOffersPage from "./pages/SpecialOffers";
+import WishlistPage from "./pages/Wishlist";
 
 function App() {
   return (
@@ -27,6 +35,14 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/my-account" element={<MyAccountPage />} />
       <Route path="/product-des" element={<ProductDesPage />} />
+      <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+      <Route path="/shopping-cart" element={<ShoppingCartPage />} />
+      <Route path="/payment-form" element={<PaymentFormPage />} />
+      <Route path="/order-summary" element={<OrderSummaryPage />} />
+      <Route path="/order-details" element={<OrderDetailsPage />} />
+      <Route path="/edit-profile" element={<EditProfilePage />} />
+      <Route path="/special-offers" element={<SpecialOffersPage />} />
+      <Route path="/wishlist" element={<WishlistPage />} />
     </Routes>
   );
 }

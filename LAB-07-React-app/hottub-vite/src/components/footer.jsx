@@ -14,6 +14,7 @@ function Footer() {
 	const infoLinks = [
 		{ label: "About Us", to: "/about-us" },
 		{ label: "Customer Service" },
+		{ label: "Terms and Conditions", to: "/terms-and-conditions" },
 		{ label: "Privacy Policy" },
 		{ label: "Site Map" },
 		{ label: "Search Terms" },
@@ -22,8 +23,8 @@ function Footer() {
 
 	const accountLinks = [
 		{ label: "Sign In", to: "/login-or-create-account" },
-		{ label: "View Cart" },
-		{ label: "My Wishlist" },
+		{ label: "View Cart", to: "/shopping-cart" },
+		{ label: "My Wishlist", to: "/wishlist" },
 	];
 
 	return (
