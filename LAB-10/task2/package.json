@@ -1,0 +1,16 @@
+{
+  "name": "message-routes-app",
+  "version": "1.0.0",
+  "description": "Simple message routes system with Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["express", "routes", "messages"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

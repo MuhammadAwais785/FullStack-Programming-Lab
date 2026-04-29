@@ -1,0 +1,16 @@
+{
+  "name": "dynamic-user-page-app",
+  "version": "1.0.0",
+  "description": "Dynamic user page with route parameters",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["express", "routes", "parameters"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
