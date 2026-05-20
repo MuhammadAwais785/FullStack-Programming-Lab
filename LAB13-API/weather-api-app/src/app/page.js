@@ -12,11 +12,17 @@ export default function Home() {
   const [error, setError] = useState('');
   const [isHydrated, setIsHydrated] = useState(false);
 
-  // Hydration error (Server vs Client HTML mismatch) ko rokne ke liye
+  // 1. Sirf hydration check alag se chalega (No sync cascading render)
   useEffect(() => {
     setIsHydrated(true);
-    fetchWeather('Muzaffarabad');
   }, []);
+
+  // 2. Initial weather fetch tabhi hoga jab page client side par load ho chuka ho
+  useEffect(() => {
+    if (isHydrated) {
+      fetchWeather('Muzaffarabad');
+    }
+  }, [isHydrated]);
 
   const fetchWeather = async (cityName) => {
     if (!cityName || !cityName.trim()) return;
@@ -59,9 +65,15 @@ export default function Home() {
     ];
   };
 
-  // Agar client site par hydrate nahi hua to khali layout dikhao taake mismatch error na aaye
   if (!isHydrated) {
-    return <div className="min-h-screen bg-slate-950 text-slate-100 p-8 font-sans">Loading Dashboard...</div>;
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-8 flex items-center justify-center font-sans">
+        <div className="flex items-center gap-3">
+          <Loader2 className="w-6 h-6 text-emerald-400 animate-spin" />
+          <span>Initializing Station...</span>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -122,7 +134,7 @@ export default function Home() {
             <p className="text-sm text-slate-400">Fetching live weather data...</p>
           </div>
         ) : weather && weather.main ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-fade-in">
             
             {/* Current Temp Card */}
             <div className="bg-gradient-to-br from-slate-900 to-slate-950 p-6 rounded-3xl border border-slate-800 flex flex-col justify-between relative overflow-hidden shadow-xl">
@@ -151,7 +163,7 @@ export default function Home() {
             <div className="lg:col-span-2 bg-slate-900/40 p-6 rounded-3xl border border-slate-800/60 backdrop-blur flex flex-col justify-between shadow-xl">
               <div>
                 <h3 className="text-base font-bold text-slate-200">24-Hour Expected Timeline</h3>
-                <p className="text-xs text-slate-400 mt-0.5">Graphical representation of today temperature shifting waves</p>
+                <p className="text-xs text-slate-400 mt-0.5">Graphical representation of todays temperature shifting waves</p>
               </div>
               
               <div className="flex items-end justify-between gap-2 pt-6 pb-2 px-2 h-48 border-b border-slate-800">
@@ -201,11 +213,7 @@ export default function Home() {
             </div>
 
           </div>
-        ) : (
-          <div className="flex flex-col items-center justify-center py-20 text-center border-2 border-dashed border-slate-800 rounded-2xl bg-slate-900/20">
-            <p className="text-slate-400 text-sm">Shehar ka data load nahi ho saka. Upar shehar search karein.</p>
-          </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
