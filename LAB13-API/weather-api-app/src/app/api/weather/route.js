@@ -47,16 +47,9 @@ export async function GET(request) {
 
     const data = await response.json();
 
-    // 4. Data ko clean aur task ki requirement ke mutabiq format karna
-    const formattedWeather = {
-      city: data.name,
-      currentTemperature: `${Math.round(data.main.temp)}°C`,
-      weatherCondition: data.weather[0].description,
-      humidityLevel: `${data.main.humidity}%`
-    };
-
-    // Clean JSON response return karna
-    return NextResponse.json(formattedWeather, { status: 200 });
+    // Return the original OpenWeather response so the frontend can access
+    // `data.main`, `data.weather`, `data.wind`, `data.visibility`, etc.
+    return NextResponse.json(data, { status: 200 });
 
   } catch (error) {
     console.error('Error:', error);
